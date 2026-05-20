@@ -1,0 +1,1920 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web4 Medya | Dijital Pazarlama, SEO, Web Tasarım ve Prodüksiyon Ajansı</title>
+    <meta name="description" content="Web4 Medya: Google Ads, SEO, web tasarım, dijital pazarlama ve video prodüksiyon hizmetleri. Profesyonel ekibimizle işletmenizi dijitalde büyütün." />
+    <meta name="keywords" content="dijital pazarlama, google ads, seo, web tasarım, video prodüksiyon, meta ads, drone çekimi, grafik tasarım, dijital ajans" />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="Web4 Medya" />
+    <link rel="canonical" href="https://www.web4medya.com/" />
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Web4 Medya | Dijital Pazarlama & Web Tasarım Ajansı" />
+    <meta property="og:description" content="Google Ads, SEO, web tasarım ve prodüksiyon hizmetleriyle işletmenizi dijitalde büyütün." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.web4medya.com/" />
+    <meta property="og:image" content="images/web4medya-logo.png" />
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    
+    <style>
+        :root {
+            --primary: #0A2463;
+            --gradient-1: #0A2463;
+            --gradient-2: #3E92CC;
+            --gradient-3: #4ECDC4;
+            --accent: #FF6B6B;
+            --accent-light: #FFE66D;
+            --dark: #1F2937;
+            --gray-dark: #374151;
+            --gray: #6B7280;
+            --gray-light: #E5E7EB;
+            --light: #F7FFF7;
+            --white: #FFFFFF;
+            --shadow: 0 10px 40px rgba(10, 36, 99, 0.1);
+            --radius: 20px;
+            --radius-sm: 12px;
+            --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        /* TEMEL STİLLER */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background: 
+                radial-gradient(circle at 10% 20%, rgba(62, 146, 204, 0.05) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(255, 107, 107, 0.05) 0%, transparent 20%),
+                linear-gradient(180deg, #F7FFF7 0%, #FFFFFF 100%);
+        }
+
+        /* OPTİMİZE HEADER */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+            padding: 0 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            height: 60px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+            transition: var(--transition);
+        }
+
+        .header.scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        /* OPTİMİZE LOGO */
+        .logo {
+            display: flex;
+            align-items: center;
+            height: 60px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .logo img {
+            height: 100%;
+            width: auto;
+            max-height: 60px;
+            object-fit: contain;
+        }
+
+        /* OPTİMİZE NAVIGATION */
+        .nav-desktop {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-link {
+            color: var(--gray-dark);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            padding: 8px 0;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--accent);
+        }
+
+        /* OPTİMİZE DROPDOWN */
+        .dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: linear-gradient(135deg, rgba(10, 36, 99, 0.95), rgba(62, 146, 204, 0.95));
+            min-width: 280px;
+            box-shadow: var(--shadow);
+            border-radius: var(--radius-sm);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+            z-index: 1001;
+            border: 1px solid rgba(62, 146, 204, 0.3);
+        }
+
+        .dropdown.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-content {
+            padding: 10px 0;
+        }
+
+        .dropdown-section {
+            padding: 15px 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .dropdown-section:last-child {
+            border-bottom: none;
+        }
+
+        .dropdown-section h4 {
+            font-size: 0.85rem;
+            color: white;
+            margin-bottom: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .dropdown-link {
+            display: block;
+            padding: 8px 0;
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .dropdown-link:hover {
+            color: var(--accent-light);
+            padding-left: 5px;
+        }
+
+        .arrow {
+            font-size: 0.7rem;
+            transition: transform 0.3s ease;
+            color: var(--gray-dark);
+        }
+
+        .nav-item:hover .arrow {
+            transform: rotate(180deg);
+        }
+
+        /* OPTİMİZE HEADER CTA */
+        .header-cta .btn {
+            background: linear-gradient(135deg, var(--accent-light), #FFD93D);
+            color: var(--primary);
+            padding: 12px 28px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: var(--transition);
+            white-space: nowrap;
+            border: none;
+            box-shadow: 0 4px 12px rgba(255, 230, 109, 0.2);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .header-cta .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(255, 230, 109, 0.3);
+        }
+
+        /* HAMBURGER MENU */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 21px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            z-index: 1001;
+        }
+
+        .menu-toggle span {
+            width: 100%;
+            height: 3px;
+            background-color: var(--dark);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -6px);
+        }
+
+        /* OPTİMİZE HERO SECTION - ARKA PLAN RESMİ GERİ EKLENDİ */
+        .hero {
+            background: linear-gradient(rgba(10, 36, 99, 0.85), rgba(62, 146, 204, 0.85)),
+                        url('/images/w4medya-arkaplan1.webp');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: var(--white);
+            padding: 160px 5% 140px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 900;
+            margin-bottom: 30px;
+            line-height: 1.1;
+            background: linear-gradient(45deg, 
+                var(--white) 0%, 
+                var(--accent-light) 25%, 
+                var(--accent) 50%, 
+                var(--gradient-3) 75%, 
+                var(--white) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 
+                0 2px 10px rgba(0, 0, 0, 0.3),
+                0 0 30px rgba(62, 146, 204, 0.2);
+            animation: gradientShift 8s ease infinite;
+            background-size: 400% 400%;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .hero p {
+            font-size: clamp(1.1rem, 2.2vw, 1.5rem);
+            color: rgba(255, 255, 255, 0.95);
+            max-width: 800px;
+            margin: 0 auto 60px;
+            font-weight: 300;
+            line-height: 1.7;
+            text-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        /* OPTİMİZE BUTTONLAR */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 14px 28px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+            border: 2px solid transparent;
+            cursor: pointer;
+            font-size: 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* ORTAK IŞIK EFEKTİ */
+        .light-effect {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .light-effect::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                to right,
+                transparent 0%,
+                rgba(255, 255, 255, 0.3) 50%,
+                transparent 100%
+            );
+            transform: rotate(30deg);
+            animation: lightWave 3s infinite linear;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        @keyframes lightWave {
+            0% {
+                transform: translateX(-100%) translateY(-100%) rotate(30deg);
+            }
+            100% {
+                transform: translateX(100%) translateY(100%) rotate(30deg);
+            }
+        }
+
+        .light-effect > * {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* BUTON TİPLERİ */
+        .btn-primary {
+            background: linear-gradient(135deg, var(--gradient-1), var(--gradient-3));
+            color: white;
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-whatsapp {
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            color: white;
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-yellow {
+            background: linear-gradient(135deg, var(--accent-light), #FFD93D);
+            color: var(--primary);
+        }
+
+        /* HOVER EFEKTLERİ */
+        .btn:hover:not(.floating-btn) {
+            transform: translateY(-3px);
+        }
+
+        .hero-buttons .btn:hover,
+        .cta-buttons .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        /* HERO BUTTONS */
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 50px;
+        }
+
+        .hero-buttons .btn {
+            min-width: 260px;
+            padding: 18px 40px;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        /* OPTİMİZE MOBILE MENU */
+        .mobile-menu {
+            position: fixed;
+            top: 60px;
+            left: 0;
+            right: 0;
+            background: var(--white);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            z-index: 999;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+            border-top: 1px solid var(--gray-light);
+        }
+
+        .mobile-menu.active {
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        .mobile-nav {
+            padding: 20px;
+        }
+
+        .mobile-nav-item {
+            margin-bottom: 5px;
+        }
+
+        .mobile-nav-link {
+            display: block;
+            padding: 15px;
+            color: var(--gray-dark);
+            text-decoration: none;
+            font-weight: 600;
+            border-bottom: 1px solid var(--gray-light);
+            transition: var(--transition);
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .mobile-nav-link:hover {
+            color: var(--accent);
+        }
+
+        .mobile-cta-btn {
+            background: linear-gradient(135deg, var(--gradient-1), var(--gradient-2)) !important;
+            color: white !important;
+            border: none !important;
+            margin-top: 10px;
+            border-radius: var(--radius-sm);
+        }
+
+        .mobile-dropdown-btn {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            background: none;
+            border: none;
+            padding: 15px;
+            color: var(--gray-dark);
+            font-weight: 600;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            border-bottom: 1px solid var(--gray-light);
+            text-align: left;
+        }
+
+        .mobile-dropdown-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            background: linear-gradient(135deg, rgba(10, 36, 99, 0.05), rgba(62, 146, 204, 0.05));
+            margin-left: 10px;
+            border-radius: var(--radius-sm);
+        }
+
+        .mobile-dropdown-content.active {
+            max-height: 500px;
+        }
+
+        .mobile-dropdown-section {
+            padding: 10px 20px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .mobile-dropdown-section:last-child {
+            border-bottom: none;
+        }
+
+        .mobile-dropdown-section h4 {
+            font-size: 0.9rem;
+            color: var(--primary);
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .mobile-dropdown-link {
+            display: block;
+            padding: 8px 0;
+            color: var(--gray-dark);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .mobile-dropdown-link:hover {
+            color: var(--accent);
+            padding-left: 5px;
+        }
+
+        .mobile-arrow {
+            transition: transform 0.3s ease;
+        }
+
+        .mobile-dropdown-btn.active .mobile-arrow {
+            transform: rotate(180deg);
+        }
+
+        /* OPTİMİZE HİZMETLERİMİZ */
+        .services-section {
+            padding: 60px 5% 80px;
+            background: #F8FAFC;
+            margin-top: -20px;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 60px;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 4.5vw, 3.2rem);
+            font-weight: 900;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, var(--gradient-1), var(--gradient-2), var(--gradient-3));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .section-subtitle {
+            font-size: clamp(1.1rem, 1.8vw, 1.3rem);
+            color: var(--gray);
+            line-height: 1.6;
+            margin-top: 20px;
+        }
+
+        .category-title {
+            font-size: 1.8rem;
+            font-weight: 900;
+            margin-bottom: 40px;
+            color: var(--primary);
+            padding-left: 15px;
+            border-left: 4px solid var(--accent);
+        }
+
+        .services-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-category {
+            margin-bottom: 80px;
+        }
+
+        .service-category:last-child {
+            margin-bottom: 0;
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        /* iOS FIX: OPTİMİZE FLIP CARD - DÜZELTİLDİ */
+        .flip-card {
+            position: relative;
+            height: 280px;
+            transform-style: preserve-3d;
+            -webkit-transform-style: preserve-3d; /* iOS için */
+            transition: transform 0.6s ease;
+            -webkit-transition: transform 0.6s ease; /* iOS için */
+            border-radius: var(--radius);
+            cursor: pointer;
+            background: white;
+            /* iOS FIX 1: */
+            perspective: 1000px;
+            -webkit-perspective: 1000px; /* iOS için */
+            transform: translate3d(0,0,0);
+            -webkit-transform: translate3d(0,0,0); /* iOS için */
+        }
+
+        .flip-card:hover:not(.flipped) {
+            transform: translateY(-5px) translate3d(0,0,0);
+            -webkit-transform: translateY(-5px) translate3d(0,0,0); /* iOS için */
+        }
+
+        .flip-card.flipped {
+            transform: rotateY(180deg) translateZ(1px); /* iOS için küçük Z değeri */
+            -webkit-transform: rotateY(180deg) translateZ(1px); /* iOS için */
+        }
+
+        .card-face {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: var(--radius);
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden; /* iOS için kritik */
+            padding: 30px 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            overflow: hidden;
+            /* iOS FIX 2: */
+            transform: translate3d(0,0,0);
+            -webkit-transform: translate3d(0,0,0); /* iOS için */
+        }
+
+        .card-front {
+            background: white;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .card-front::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent), var(--accent-light));
+            border-radius: var(--radius) var(--radius) 0 0;
+        }
+
+        .card-front .icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: var(--transition);
+            color: white;
+            /* iOS FIX 3: İkon flicker sorunu için */
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden; /* iOS için */
+            transform: translateZ(0);
+            -webkit-transform: translateZ(0); /* iOS için */
+        }
+
+        /* OPTİMİZE İKON RENKLERİ */
+        .icon-google { background: linear-gradient(45deg, #4285F4, #34A853, #FBBC05, #EA4335); }
+        .icon-instagram { background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D); }
+        .icon-facebook { background: linear-gradient(45deg, #1877F2, #0A66C2); }
+        .icon-maps { background: linear-gradient(45deg, #4285F4, #0F9D58); }
+        .icon-seo { background: linear-gradient(45deg, var(--accent-light), var(--accent)); }
+        .icon-social { background: linear-gradient(45deg, #3B5998, #1DA1F2); }
+        .icon-ecommerce { background: linear-gradient(45deg, #FF6B6B, #FFD93D); }
+        .icon-corporate { background: linear-gradient(45deg, var(--gradient-3), #3E92CC); }
+        .icon-video { background: linear-gradient(45deg, #FF0000, #FF6B6B); }
+        .icon-film { background: linear-gradient(45deg, #6A5ACD, #9370DB); }
+        .icon-drone { background: linear-gradient(45deg, #3E92CC, #4ECDC4); }
+
+        .flip-card:hover .card-front .icon {
+            transform: scale(1.1) rotate(5deg) translateZ(0);
+            -webkit-transform: scale(1.1) rotate(5deg) translateZ(0); /* iOS için */
+        }
+
+        .card-front h3 {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin: 0;
+        }
+
+        .card-back {
+            background: linear-gradient(135deg, 
+                rgba(10, 36, 99, 0.95), 
+                rgba(62, 146, 204, 0.95));
+            color: var(--white);
+            transform: rotateY(180deg) translate3d(0,0,0); /* iOS için düzeltme */
+            -webkit-transform: rotateY(180deg) translate3d(0,0,0); /* iOS için */
+            justify-content: space-between;
+            padding: 30px 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .card-back h3 {
+            font-size: 1.4rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            color: white;
+            line-height: 1.3;
+        }
+
+        .card-back p {
+            font-size: 1rem;
+            line-height: 1.5;
+            opacity: 0.95;
+            margin-bottom: 20px;
+            color: rgba(255, 255, 255, 0.95);
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+        }
+
+        .card-back .btn {
+            background: white;
+            color: var(--primary);
+            padding: 12px 24px; 
+            font-weight: 600;
+            font-size: 0.95rem; 
+            border-radius: 50px;
+            text-decoration: none;
+            width: 100%;
+            max-width: 180px; 
+            margin: 0 auto;
+            white-space: nowrap; 
+        }
+
+        /* NEDEN BİZ SECTION */
+        .why-us {
+            padding: 100px 5%;
+            background: linear-gradient(135deg, var(--gradient-1) 0%, var(--gradient-2) 50%, var(--gradient-3) 100%);
+            color: white;
+        }
+
+        .why-us .section-title {
+            background: linear-gradient(135deg, #ffffff, var(--accent-light));
+            -webkit-background-clip: text;
+            background-clip: text;
+        }
+
+        .why-us .section-subtitle {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 40px 30px;
+            border-radius: var(--radius);
+            text-align: center;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: var(--transition);
+        }
+
+        .feature:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: white;
+            font-size: 2rem;
+            transition: var(--transition);
+        }
+
+        .feature:hover .feature-icon {
+            transform: scale(1.1);
+        }
+
+        .feature h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: white;
+            font-weight: 700;
+        }
+
+        .feature p {
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.6;
+            font-size: 1rem;
+        }
+
+        /* OPTİMİZE CTA SECTION */
+        .cta-section {
+            padding: 100px 5%;
+            background: linear-gradient(135deg, 
+                rgba(10, 36, 99, 0.95), 
+                rgba(62, 146, 204, 0.95));
+            text-align: center;
+            color: white;
+        }
+
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-section h2 {
+            font-size: clamp(2rem, 4.5vw, 3.2rem);
+            font-weight: 900;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            background: linear-gradient(45deg, white, var(--accent-light), var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: gradientShift 8s ease infinite;
+            background-size: 400% 400%;
+        }
+
+        .cta-section p {
+            font-size: clamp(1.1rem, 1.8vw, 1.4rem);
+            max-width: 700px;
+            margin: 0 auto 40px;
+            opacity: 0.95;
+            line-height: 1.6;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .cta-buttons .btn {
+            min-width: 240px;
+            padding: 18px 40px;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        /* OPTİMİZE FLOATING BUTTONS */
+        .floating-cta {
+            position: fixed;
+            bottom: 120px;
+            right: 20px;
+            z-index: 998;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .floating-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            transition: var(--transition);
+            text-decoration: none;
+            font-size: 1.9rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .floating-btn:hover {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .floating-whatsapp {
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            color: white;
+            animation: pulse 2s infinite;
+            box-shadow: 0 15px 40px rgba(37, 211, 102, 0.4);
+        }
+
+        .floating-phone {
+            background: linear-gradient(135deg, var(--gradient-1), var(--gradient-3));
+            color: white;
+            box-shadow: 0 15px 40px rgba(20, 94, 141, 0.4);
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+            }
+        }
+
+        /* OPTİMİZE FOOTER */
+        .footer {
+            background: white;
+            color: var(--dark);
+            padding: 80px 5% 40px;
+            border-top: 4px solid var(--accent);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 50px;
+            margin-bottom: 60px;
+        }
+
+        .footer-section h3 {
+            font-size: 1.3rem;
+            font-weight: 800;
+            margin-bottom: 25px;
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent), var(--accent-light));
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .footer-logo img {
+            height: 60px;
+            width: auto;
+        }
+
+        .footer-logo-text {
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: var(--primary);
+        }
+
+        .footer-description {
+            color: var(--gray-dark);
+            line-height: 1.6;
+            margin-bottom: 30px;
+            font-size: 1rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .social-link {
+            width: 45px;
+            height: 45px;
+            background: var(--gray-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--dark);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            background: var(--accent);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: var(--gray-dark);
+            text-decoration: none;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+
+        .footer-links i {
+            color: var(--accent);
+            font-size: 0.8rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            color: var(--gray-dark);
+        }
+
+        .contact-item i {
+            width: 40px;
+            height: 40px;
+            background: var(--gray-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1rem;
+            flex-shrink: 0;
+            transition: var(--transition);
+        }
+
+        .contact-item:hover i {
+            background: var(--accent);
+            color: white;
+        }
+
+        .contact-item a {
+            color: var(--dark);
+            text-decoration: none;
+            transition: var(--transition);
+            font-weight: 600;
+            font-size: 1.1rem;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .contact-item a:hover {
+            color: var(--accent);
+        }
+
+        .contact-item span {
+            color: var(--gray);
+            line-height: 1.6;
+            font-size: 1rem;
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 40px;
+            border-top: 1px solid var(--gray-light);
+            text-align: center;
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        .footer-bottom a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .footer-bottom a:hover {
+            color: var(--accent);
+        }
+
+        /* DRONE ICON FIX - GÜNCELLENDİ */
+        .fa-drone:before {
+            content: "\f5d1"; /* helicopter icon */
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+        }
+
+        /* OPTİMİZE RESPONSIVE */
+        @media (max-width: 1024px) {
+            .nav-desktop {
+                display: none;
+            }
+            
+            .menu-toggle {
+                display: flex;
+            }
+            
+            .header-cta {
+                display: none;
+            }
+            
+            .category-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                padding: 140px 4% 80px;
+                min-height: auto;
+                background-attachment: scroll;
+            }
+            
+            .services-section {
+                padding: 40px 4% 80px;
+            }
+            
+            .category-title {
+                font-size: 1.6rem;
+            }
+            
+            .flip-card {
+                height: 260px;
+            }
+            
+            .hero-buttons,
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+            }
+            
+            .hero-buttons .btn,
+            .cta-buttons .btn {
+                width: 100%;
+                max-width: 320px;
+                padding: 16px 32px;
+            }
+            
+            .category-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .card-back {
+                padding: 25px 15px;
+            }
+            
+            .card-back p {
+                font-size: 0.95rem;
+            }
+            
+            .card-back .btn {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+                max-width: 160px;
+                white-space: nowrap;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .floating-cta {
+                bottom: 100px;
+                right: 15px;
+            }
+            
+            .floating-btn {
+                width: 60px;
+                height: 60px;
+                font-size: 1.6rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header {
+                padding: 0 20px;
+            }
+            
+            .logo img {
+                max-height: 50px;
+            }
+            
+            .hero {
+                padding: 120px 20px 60px;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+                margin-bottom: 30px;
+            }
+            
+            .services-section {
+                padding: 30px 20px 60px;
+                margin-top: -10px;
+            }
+            
+            .category-title {
+                font-size: 1.4rem;
+            }
+            
+            .flip-card {
+                height: 240px;
+            }
+            
+            .card-face {
+                padding: 25px 15px;
+            }
+            
+            .card-front .icon {
+                width: 70px;
+                height: 70px;
+            }
+            
+            .card-front h3,
+            .card-back h3 {
+                font-size: 1.2rem;
+            }
+            
+            .card-back p {
+                font-size: 0.9rem;
+            }
+            
+            .card-back .btn {
+                background: white;
+                color: var(--primary);
+                padding: 12px 24px; 
+                font-weight: 600;
+                font-size: 0.95rem; 
+                border-radius: 50px;
+                text-decoration: none;
+                width: 100%;
+                max-width: 180px; 
+                margin: 0 auto;
+                white-space: nowrap; 
+            }
+            
+            .footer {
+                padding: 60px 20px 30px;
+            }
+            
+            .footer-logo img {
+                height: 50px;
+            }
+            
+            .footer-logo-text {
+                font-size: 1.3rem;
+            }
+            
+            .floating-cta {
+                bottom: 80px;
+                right: 10px;
+                gap: 12px;
+            }
+            
+            .floating-btn {
+                width: 55px;
+                height: 55px;
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="header" id="mainHeader">
+        <a href="#" class="logo" id="homeLink" aria-label="Web4 Medya - Ana Sayfa">
+            <img src="/images/web4medya-logo.png" alt="Web4 Medya Logo" onerror="this.onerror=null; this.src='https://via.placeholder.com/200x70/transparent/0A2463?text=Web4+Medya';">
+        </a>
+        
+        <!-- NAVIGATION -->
+        <nav class="nav-desktop">
+            <div class="nav-item">
+                <a href="/" class="nav-link active">Ana Sayfa</a>
+            </div>
+            
+            <!-- HİZMETLER DROPDOWN -->
+            <div class="nav-item">
+                <a href="#" class="nav-link">Hizmetler <i class="fas fa-chevron-down arrow"></i></a>
+                <div class="dropdown" id="hizmetlerDropdown">
+                    <div class="dropdown-content">
+                        <!-- Dijital Pazarlama -->
+                        <div class="dropdown-section">
+                            <h4>Dijital Pazarlama</h4>
+                            <a href="/google-ads-reklam-ver/" class="dropdown-link">Google Ads Reklam Ver</a>
+                            <a href="/instagram-reklam-ver/" class="dropdown-link">İnstagram Reklam Ver</a>
+                            <a href="/facebook-reklam-ver/" class="dropdown-link">Facebook Reklam Ver</a>
+                            <a href="/google-harita-maps-kaydi/" class="dropdown-link">Google Harita(Maps) Kaydı</a>
+                            <a href="/seo/" class="dropdown-link">SEO (Arama Motoru Optimizasyonu)</a>
+                            <a href="/sosyal-medya-yonetimi/" class="dropdown-link">Sosyal Medya Yönetimi</a>
+                        </div>
+                        
+                        <!-- Web Tasarım -->
+                        <div class="dropdown-section">
+                            <h4>Web Tasarım</h4>
+                            <a href="/e-ticaret-sitesi/" class="dropdown-link">E-Ticaret Sitesi</a>
+                            <a href="/kurumsal-web-sitesi/" class="dropdown-link">Kurumsal Web Sitesi</a>
+                        </div>
+                        
+                        <!-- Prodüksiyon -->
+                        <div class="dropdown-section">
+                            <h4>Prodüksiyon</h4>
+                            <a href="/sosyal-medya-videolari/" class="dropdown-link">Sosyal Medya Videoları</a>
+                            <a href="/tanitim-filmi/" class="dropdown-link">Tanıtım Filmi</a>
+                            <a href="/drone-cekimi/" class="dropdown-link">Drone Çekimi</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- BLOG -->
+            <div class="nav-item">
+                <a href="/blog/" class="nav-link">Blog</a>
+            </div>
+            
+            <!-- HAKKIMIZDA -->
+            <div class="nav-item">
+                <a href="/hakkimizda/" class="nav-link">Hakkımızda</a>
+            </div>
+            
+            <!-- İLETİŞİM -->
+            <div class="nav-item">
+                <a href="/iletisim/" class="nav-link">İletişim</a>
+            </div>
+            
+            <!-- HEADER CTA BUTTON -->
+            <div class="header-cta">
+                <a href="tel:05422360983" class="btn btn-yellow light-effect">
+                    <i class="fas fa-phone-alt"></i> 0542 236 09 83
+                </a>
+            </div>
+        </nav>
+        
+        <!-- Hamburger Menu -->
+        <button class="menu-toggle" id="menuToggle" aria-label="Menüyü aç/kapat">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </header>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <nav class="mobile-nav">
+            <div class="mobile-nav-item">
+                <a href="#" class="mobile-nav-link active" id="mobileHomeLink">Ana Sayfa</a>
+            </div>
+            
+            <div class="mobile-nav-item">
+                <button class="mobile-dropdown-btn" data-target="hizmetlerMobile">
+                    Hizmetler <i class="fas fa-chevron-down mobile-arrow"></i>
+                </button>
+                <div class="mobile-dropdown-content" id="hizmetlerMobile">
+                    <div class="mobile-dropdown-section">
+                        <h4>Dijital Pazarlama</h4>
+                        <a href="/google-ads-reklam-ver/" class="mobile-dropdown-link">Google Ads Reklam Ver</a>
+                        <a href="/instagram-reklam-ver/" class="mobile-dropdown-link">İnstagram Reklam Ver</a>
+                        <a href="/facebook-reklam-ver/" class="mobile-dropdown-link">Facebook Reklam Ver</a>
+                        <a href="/google-harita-maps-kaydi/" class="mobile-dropdown-link">Google Harita(Maps) Kaydı</a>
+                        <a href="/seo/" class="mobile-dropdown-link">SEO (Arama Motoru Optimizasyonu)</a>
+                        <a href="/sosyal-medya-yonetimi/" class="mobile-dropdown-link">Sosyal Medya Yönetimi</a>
+                    </div>
+                    
+                    <div class="mobile-dropdown-section">
+                        <h4>Web Tasarım</h4>
+                        <a href="/e-ticaret-sitesi/" class="mobile-dropdown-link">E-Ticaret Sitesi</a>
+                        <a href="/kurumsal-web-sitesi/" class="mobile-dropdown-link">Kurumsal Web Sitesi</a>
+                    </div>
+                    
+                    <div class="mobile-dropdown-section">
+                        <h4>Prodüksiyon</h4>
+                        <a href="/sosyal-medya-videolari/" class="mobile-dropdown-link">Sosyal Medya Videoları</a>
+                        <a href="/tanitim-filmi/" class="mobile-dropdown-link">Tanıtım Filmi</a>
+                        <a href="/drone-cekimi/" class="mobile-dropdown-link">Drone Çekimi</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mobile-nav-item">
+                <a href="/blog/" class="mobile-nav-link">Blog</a>
+            </div>
+            
+            <div class="mobile-nav-item">
+                <a href="/hakkimizda/" class="mobile-nav-link">Hakkımızda</a>
+            </div>
+            
+            <div class="mobile-nav-item">
+                <a href="/iletisim/" class="mobile-nav-link">İletişim</a>
+            </div>
+            
+            <div class="mobile-nav-item">
+                <a href="tel:05422360983" class="mobile-nav-link mobile-cta-btn light-effect">
+                    <i class="fas fa-phone-alt"></i> 0542 236 09 83
+                </a>
+            </div>
+        </nav>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <h1>Dijitalde Fark Yaratın</h1>
+            <p>Web Tasarım, SEO, Google & Meta Ads Reklamları ve profesyonel prodüksiyon çözümlerimizle markanızı dijital dünyada öne çıkarıyoruz.</p>
+             <div class="hero-buttons">
+                <a href="tel:05422360983" class="btn btn-primary light-effect">
+                    <i class="fas fa-phone-alt"></i> 0542 236 09 83
+                </a>
+                <a href="https://wa.me/905422360983" class="btn btn-whatsapp light-effect">
+                    <i class="fab fa-whatsapp"></i> WhatsApp'tan Yaz
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hizmetlerimiz -->
+    <section class="services-section">
+        <div class="section-header">
+            <h2 class="section-title">Hizmetlerimiz</h2>
+            <p class="section-subtitle">İşletmeniz için kapsamlı dijital çözümler sunuyoruz. Kartlara tıklayarak detayları görün.</p>
+        </div>
+        
+        <div class="services-container">
+            <div class="service-category">
+                <h2 class="category-title">Dijital Pazarlama Hizmetlerimiz</h2>
+                <div class="category-grid">
+                    <div class="flip-card" data-id="google-ads">
+                        <div class="card-face card-front">
+                            <div class="icon icon-google">
+                                <i class="fab fa-google"></i>
+                            </div>
+                            <h3>Google Ads Reklam Ver</h3>
+                        </div>
+                        <div class="card-face card-back">
+                            <h3>Google Ads</h3>
+                            <p>Arama ve Display ağlarında reklamlarınızı profesyonel şekilde yönetiyor, hedef kitlenize ulaşmanızı sağlıyoruz.</p>
+                            <a href="/google-ads-reklam-ver/" class="btn">Paketleri İncele</a>
+                        </div>
+                    </div>
+                    
+                    <div class="flip-card" data-id="instagram-ads">
+                        <div class="card-face card-front">
+                            <div class="icon icon-instagram">
+                                <i class="fab fa-instagram"></i>
+                            </div>
+                            <h3>İnstagram Reklam Ver</h3>
+                        </div>
+                        <div class="card-face card-back">
+                            <h3>Instagram Reklam</h3>
+                            <p>Instagram'da görsel ve video reklamlarla genç ve aktif kitleye ulaşmanızı sağlıyor, etkileşimlerinizi artırıyoruz.</p>
+                            <a href="/instagram-reklam-ver/" class="btn">Paketleri İncele</a>
+                        </div>
+                    </div>
+                    
+                    <div class="flip-card" data-id="facebook-ads">
+                        <div class="card-face card-front">
+                            <div class="icon icon-facebook">
+                                <i class="fab fa-facebook"></i>
+                            </div>
+                            <h3>Facebook Reklam Ver</h3>
+                        </div>
+                        <div class="card-face card-back">
+                            <h3>Facebook Reklam</h3>
+                            <p>Facebook'ta detaylı hedefleme ile doğru kitleye reklamlarınızı ulaştırıyor, dönüşüm oranlarınızı yükseltiyoruz.</p>
+                            <a href="/facebook-reklam-ver/" class="btn">Paketleri İncele</a>
+                        </div>
+                    </div>
+                    
+                    <div class="flip-card" data-id="google-maps">
+                        <div class="card-face card-front">
+                            <div class="icon icon-maps">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <h3>Google Harita Kaydı</h3>
+                        </div>
+                        <div class="card-face card-back">
+                            <h3>Google Harita</h3>
+                            <p>İşletmenizi Google Haritalar'da kaydediyor, müşterilerinizin sizi kolayca bulmasını ve yön bulmasını sağlıyoruz.</p>
+                            <a href="/google-harita-maps-kaydi/" class="btn">Paketleri İncele</a>
+                        </div>
+                    </div>
+                    
+                    <div class="flip-card" data-id="seo">
+                        <div class="card-face card-front">
+                            <div class="icon icon-seo">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <h3>SEO Hizmeti</h3>
+                        </div>
+                        <div class="card-face card-back">
+                            <h3>SEO Optimizasyon</h3>
+                            <p>Web sitenizi arama motorları için optimize ediyor, organik trafik artışı sağlıyor ve sürekli takip ediyoruz.</p>
+                            <a href="/seo/" class="btn">Paketleri İncele</a>
+                        </div>
+                    </div>
+                    
+                    <div class="flip-card" data-id="social-media">
+                        <div class="card-face card-front">
+                            <div class="icon icon-social">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <h3>Sosyal Medya Yönetimi</h3>
+                        </div>
+                        <div class="card-face card-back">
+                            <h3>Sosyal Medya</h3>
+                            <p>Sosyal medya hesaplarınızı profesyonelce yönetiyor, içerik üretiyor ve takipçi etkileşiminizi artırıyoruz.</p>
+                            <a href="/sosyal-medya-yonetimi/" class="btn">Paketleri İncele</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="service-category">
+                <h2 class="category-title">Web Tasarım Hizmetlerimiz</h2>
+                <div class="category-grid">
+                    <div class="flip-card" data-id="ecommerce">
+                        <div class="card-face card-front">
+                            <div class="icon icon-ecommerce">
+                                <i class="fas fa-shopping-cart"></i>
+                            </div>
+                            <h3>E-Ticaret Sitesi</h3>
+                        </div>
+                        <div class="card-face card-back">
+                            <h3>E-Ticaret</h3>
+                            <p>Mobil uyumlu, güvenli ve kullanıcı dostu e-ticaret siteleri tasarlıyor, online satışlarınızı artırıyoruz.</p>
+                            <a href="/e-ticaret-sitesi/" class="btn">Paketleri İncele</a>
+                        </div>
+                    </div>
+                    
+                    <div class="flip-card" data-id="corporate-web">
+                        <div class="card-face card-front">
+                            <div class="icon icon-corporate">
+                                <i class="fas fa-briefcase"></i>
+                            </div>
+                            <h3>Kurumsal Web Sitesi</h3>
+                        </div>
+                        <div class="card-face card-back">
+                            <h3>Kurumsal Web</h3>
+                            <p>Kurumsal kimliğinize uygun, modern ve etkileyici web siteleri tasarlıyor, online varlığınızı güçlendiriyoruz.</p>
+                            <a href="/kurumsal-web-sitesi/" class="btn">Paketleri İncele</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="service-category">
+                <h2 class="category-title">Prodüksiyon Hizmetlerimiz</h2>
+                <div class="category-grid">
+                    <div class="flip-card" data-id="social-videos">
+                        <div class="card-face card-front">
+                            <div class="icon icon-video">
+                                <i class="fas fa-video"></i>
+                            </div>
+                            <h3>Sosyal Medya Videoları</h3>
+                        </div>
+                        <div class="card-face card-back">
+                            <h3>Sosyal Medya Videoları</h3>
+                            <p>Sosyal medya platformları için etkileyici ve paylaşılabilir video içerikler üretiyor, marka bilinirliğinizi artırıyoruz.</p>
+                            <a href="/sosyal-medya-videolari/" class="btn">Paketleri İncele</a>
+                        </div>
+                    </div>
+                    
+                    <div class="flip-card" data-id="promo-video">
+                        <div class="card-face card-front">
+                            <div class="icon icon-film">
+                                <i class="fas fa-film"></i>
+                            </div>
+                            <h3>Tanıtım Filmi</h3>
+                        </div>
+                        <div class="card-face card-back">
+                            <h3>Tanıtım Filmi</h3>
+                            <p>Markanızı en iyi şekilde tanıtan profesyonel tanıtım filmleri hazırlıyor, kurumsal kimliğinizi güçlendiriyoruz.</p>
+                            <a href="/tanitim-filmi/" class="btn">Paketleri İncele</a>
+                        </div>
+                    </div>
+                    
+                    <div class="flip-card" data-id="drone">
+                        <div class="card-face card-front">
+                            <div class="icon icon-drone">
+                                <i class="fas fa-drone"></i>
+                            </div>
+                            <h3>Drone Çekimi</h3>
+                        </div>
+                        <div class="card-face card-back">
+                            <h3>Drone Çekimi</h3>
+                            <p>Drone ile havadan çektiğimiz görüntülerle içeriklerinize farklı bir boyut katıyor, etkiyi artırıyoruz.</p>
+                            <a href="/drone-cekimi/" class="btn">Paketleri İncele</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEDEN BİZ SECTION -->
+    <section class="why-us">
+        <div class="section-header">
+            <h2 class="section-title">Neden Web4 Medya?</h2>
+            <p class="section-subtitle">Farkımızı ortaya koyan özelliklerimizle işletmenize değer katıyoruz</p>
+        </div>
+        
+        <div class="features-grid">
+            <div class="feature">
+                <div class="feature-icon">
+                    <i class="fas fa-trophy"></i>
+                </div>
+                <h3>Deneyimli Ekip</h3>
+                <p>10+ yıllık sektör deneyimine sahip uzman ekibimizle çalışarak dijital dönüşümünüzü güvence altına alın.</p>
+            </div>
+            
+            <div class="feature">
+                <div class="feature-icon">
+                    <i class="fas fa-headset"></i>
+                </div>
+                <h3>7/24 Destek</h3>
+                <p>Size özel danışmanınızla her zaman iletişimde kalın. Sorularınıza hızlı ve profesyonel çözümler sunuyoruz.</p>
+            </div>
+            
+            <div class="feature">
+                <div class="feature-icon">
+                    <i class="fas fa-handshake"></i>
+                </div>
+                <h3>Şeffaf İletişim</h3>
+                <p>Tüm süreçlerde şeffaf ve açık iletişim politikamızla güven inşa ediyor, beklentilerinizi karşılıyoruz.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2>İşinizi Dijitalde Büyütmeye Hazır mısınız?</h2>
+            <p>Web4 Medya uzmanları sizin için en uygun dijital stratejiyi belirlesin. Ücretsiz danışmanlık ve analiz hizmetimizden yararlanın.</p>
+            <div class="cta-buttons">
+                <a href="tel:05422360983" class="btn btn-primary light-effect">
+                    <i class="fas fa-phone-alt"></i> 0542 236 09 83
+                </a>
+                <a href="https://wa.me/905422360983" class="btn btn-whatsapp light-effect">
+                    <i class="fab fa-whatsapp"></i> WhatsApp'tan Yaz
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="footer-logo">
+                    <img src="/images/web4medya-logo.png" alt="Web4 Medya Logo" onerror="this.onerror=null; this.src='https://via.placeholder.com/200x70/transparent/0A2463?text=Web4+Medya';">
+                    <div class="footer-logo-text">İşinizi şansa bırakmayın!</div>
+                </div>
+                <p class="footer-description">
+                    Dijital pazarlama, web tasarım ve prodüksiyon alanında profesyonel çözümler sunan lider ajans. İşletmenizi dijital dünyada bir adım öne taşıyoruz.
+                </p>
+                <div class="social-links">
+                    <a href="https://instagram.com/web4medya" class="social-link" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://facebook.com/web4medya" class="social-link" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://twitter.com/web4medya" class="social-link" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="https://linkedin.com/company/web4medya" class="social-link" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://wa.me/905422360983" class="social-link" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Hızlı Bağlantılar</h3>
+                <ul class="footer-links">
+                    <li><a href="/"><i class="fas fa-chevron-right"></i> Ana Sayfa</a></li>
+                    <li><a href="/hakkimizda/"><i class="fas fa-chevron-right"></i> Hakkımızda</a></li>
+                    <li><a href="/blog/"><i class="fas fa-chevron-right"></i> Blog</a></li>
+                    <li><a href="/referanslar/"><i class="fas fa-chevron-right"></i> Referanslar</a></li>
+                    <li><a href="/iletisim/"><i class="fas fa-chevron-right"></i> İletişim</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Hizmetlerimiz</h3>
+                <ul class="footer-links">
+                    <li><a href="/google-ads-reklam-ver/"><i class="fas fa-chevron-right"></i> Google Ads Reklam</a></li>
+                    <li><a href="/instagram-reklam-ver/"><i class="fas fa-chevron-right"></i> Instagram Reklam</a></li>
+                    <li><a href="/facebook-reklam-ver/"><i class="fas fa-chevron-right"></i> Facebook Reklam</a></li>
+                    <li><a href="/seo/"><i class="fas fa-chevron-right"></i> SEO Hizmeti</a></li>
+                    <li><a href="/web-tasarim/"><i class="fas fa-chevron-right"></i> Web Tasarım</a></li>
+                    <li><a href="/sosyal-medya-videolari/"><i class="fas fa-chevron-right"></i> Sosyal Medya Videoları</a></li>
+                    <li><a href="/drone-cekimi/"><i class="fas fa-chevron-right"></i> Drone Çekimi</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>İletişim Bilgileri</h3>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <div>
+                            <a href="tel:05422360983">0542 236 09 83</a>
+                            <span>Ücretsiz danışmanlık için arayın</span>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <a href="mailto:info@web4medya.com">info@web4medya.com</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <span>Web4 Medya Ajansı<br>İstanbul, Türkiye</span>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <span>Pzt-Cum: 09:00 - 20:00<br>Cmt & Pzr: 10:00 - 20:00</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2026 Web4 Medya. Tüm hakları saklıdır. <a href="/gizlilik-politikasi/">Gizlilik Politikası</a> | <a href="/kullanim-kosullari/">Kullanım Koşulları</a></p>
+            <p style="margin-top: 15px; font-size: 0.9rem; color: var(--gray);">Profesyonel dijital pazarlama ve web tasarım çözümleri</p>
+        </div>
+    </footer>
+    
+    <!-- FLOATING CTA BUTTONLARI -->
+    <div class="floating-cta">
+        <a href="https://wa.me/905422360983" class="floating-btn floating-whatsapp light-effect" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+        <a href="tel:05422360983" class="floating-btn floating-phone light-effect">
+            <i class="fas fa-phone-alt"></i>
+        </a>
+    </div>
+
+    <script>
+        // OPTİMİZE HEADER SCROLL
+        const header = document.getElementById('mainHeader');
+        window.addEventListener('scroll', () => {
+            header.classList.toggle('scrolled', window.scrollY > 20);
+        });
+
+        // OPTİMİZE MOBILE MENU
+        const menuToggle = document.getElementById('menuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        menuToggle?.addEventListener('click', (e) => {
+            e.stopPropagation();
+            menuToggle.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+            
+            // iOS için: Menü açıkken body scroll'unu engelle
+            if (mobileMenu.classList.contains('active')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = '';
+            }
+        });
+
+        // OPTİMİZE DESKTOP DROPDOWN
+        document.querySelectorAll('.nav-item').forEach(item => {
+            const dropdown = item.querySelector('.dropdown');
+            if (dropdown) {
+                item.addEventListener('mouseenter', () => dropdown.classList.add('active'));
+                item.addEventListener('mouseleave', () => dropdown.classList.remove('active'));
+            }
+        });
+
+        // OPTİMİZE MOBILE DROPDOWN
+        document.querySelectorAll('.mobile-dropdown-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const target = document.getElementById(this.dataset.target);
+                const isActive = this.classList.toggle('active');
+                
+                document.querySelectorAll('.mobile-dropdown-content.active').forEach(d => {
+                    if (d !== target) d.classList.remove('active');
+                });
+                
+                document.querySelectorAll('.mobile-dropdown-btn.active').forEach(b => {
+                    if (b !== this) b.classList.remove('active');
+                });
+                
+                if (target) target.classList.toggle('active', isActive);
+            });
+        });
+
+        // OPTİMİZE FLIP CARDS - iOS FIX için güncellendi
+        document.querySelectorAll('.flip-card').forEach(card => {
+            card.addEventListener('click', function(e) {
+                if (e.target.closest('a')) return;
+                
+                const isFlipped = this.classList.toggle('flipped');
+                
+                if (isFlipped) {
+                    document.querySelectorAll('.flip-card.flipped').forEach(other => {
+                        if (other !== this) other.classList.remove('flipped');
+                    });
+                }
+            });
+        });
+
+        // CLOSE DROPDOWNS ON CLICK OUTSIDE
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.nav-item')) {
+                document.querySelectorAll('.dropdown.active').forEach(d => d.classList.remove('active'));
+            }
+            
+            if (!e.target.closest('.menu-toggle') && !e.target.closest('.mobile-menu')) {
+                menuToggle?.classList.remove('active');
+                mobileMenu?.classList.remove('active');
+                document.body.style.overflow = ''; // iOS için: Scroll'u geri aç
+            }
+            
+            if (!e.target.closest('.flip-card')) {
+                document.querySelectorAll('.flip-card.flipped').forEach(c => c.classList.remove('flipped'));
+            }
+        });
+
+        // OPTİMİZE SMOOTH SCROLL
+        const homeLink = document.getElementById('homeLink');
+        const mobileHomeLink = document.getElementById('mobileHomeLink');
+        
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        homeLink?.addEventListener('click', (e) => {
+            e.preventDefault();
+            scrollToTop();
+        });
+        
+        mobileHomeLink?.addEventListener('click', (e) => {
+            e.preventDefault();
+            scrollToTop();
+            menuToggle?.classList.remove('active');
+            mobileMenu?.classList.remove('active');
+            document.body.style.overflow = ''; // iOS için: Scroll'u geri aç
+        });
+
+        // CLOSE MOBILE MENU ON LINK CLICK
+        document.querySelectorAll('.mobile-dropdown-link, .mobile-nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                menuToggle?.classList.remove('active');
+                mobileMenu?.classList.remove('active');
+                document.querySelectorAll('.mobile-dropdown-content.active').forEach(d => d.classList.remove('active'));
+                document.querySelectorAll('.mobile-dropdown-btn.active').forEach(b => b.classList.remove('active'));
+                document.body.style.overflow = ''; // iOS için: Scroll'u geri aç
+            });
+        });
+
+        // IMAGE FALLBACK
+        document.querySelectorAll('.logo img, .footer-logo img').forEach(img => {
+            img.onerror = function() {
+                this.onerror = null;
+                this.src = 'https://via.placeholder.com/200x70/transparent/0A2463?text=Web4+Medya';
+                this.alt = 'Web4 Medya Logo';
+            };
+        });
+
+        // iOS FIX: Touch events için optimizasyon
+        document.addEventListener('touchstart', function() {}, {passive: true});
+        document.addEventListener('touchmove', function() {}, {passive: true});
+    </script>
+</body>
+</html>
