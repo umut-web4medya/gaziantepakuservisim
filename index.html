@@ -1,1920 +1,2291 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Web4 Medya | Dijital Pazarlama, SEO, Web Tasarım ve Prodüksiyon Ajansı</title>
-    <meta name="description" content="Web4 Medya: Google Ads, SEO, web tasarım, dijital pazarlama ve video prodüksiyon hizmetleri. Profesyonel ekibimizle işletmenizi dijitalde büyütün." />
-    <meta name="keywords" content="dijital pazarlama, google ads, seo, web tasarım, video prodüksiyon, meta ads, drone çekimi, grafik tasarım, dijital ajans" />
-    <meta name="robots" content="index, follow" />
-    <meta name="author" content="Web4 Medya" />
-    <link rel="canonical" href="https://www.web4medya.com/" />
-    
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="Web4 Medya | Dijital Pazarlama & Web Tasarım Ajansı" />
-    <meta property="og:description" content="Google Ads, SEO, web tasarım ve prodüksiyon hizmetleriyle işletmenizi dijitalde büyütün." />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://www.web4medya.com/" />
-    <meta property="og:image" content="images/web4medya-logo.png" />
-    
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-    
-    <style>
-        :root {
-            --primary: #0A2463;
-            --gradient-1: #0A2463;
-            --gradient-2: #3E92CC;
-            --gradient-3: #4ECDC4;
-            --accent: #FF6B6B;
-            --accent-light: #FFE66D;
-            --dark: #1F2937;
-            --gray-dark: #374151;
-            --gray: #6B7280;
-            --gray-light: #E5E7EB;
-            --light: #F7FFF7;
-            --white: #FFFFFF;
-            --shadow: 0 10px 40px rgba(10, 36, 99, 0.1);
-            --radius: 20px;
-            --radius-sm: 12px;
-            --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-        }
-
-        /* TEMEL STİLLER */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--light);
-            color: var(--dark);
-            line-height: 1.6;
-            overflow-x: hidden;
-            background: 
-                radial-gradient(circle at 10% 20%, rgba(62, 146, 204, 0.05) 0%, transparent 20%),
-                radial-gradient(circle at 90% 80%, rgba(255, 107, 107, 0.05) 0%, transparent 20%),
-                linear-gradient(180deg, #F7FFF7 0%, #FFFFFF 100%);
-        }
-
-        /* OPTİMİZE HEADER */
-        .header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(8px);
-            padding: 0 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 1000;
-            height: 60px;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-            transition: var(--transition);
-        }
-
-        .header.scrolled {
-            background: rgba(255, 255, 255, 0.98);
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-        }
-
-        /* OPTİMİZE LOGO */
-        .logo {
-            display: flex;
-            align-items: center;
-            height: 60px;
-            cursor: pointer;
-            text-decoration: none;
-        }
-
-        .logo img {
-            height: 100%;
-            width: auto;
-            max-height: 60px;
-            object-fit: contain;
-        }
-
-        /* OPTİMİZE NAVIGATION */
-        .nav-desktop {
-            display: flex;
-            align-items: center;
-            gap: 28px;
-        }
-
-        .nav-item {
-            position: relative;
-        }
-
-        .nav-link {
-            color: var(--gray-dark);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.95rem;
-            transition: var(--transition);
-            padding: 8px 0;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .nav-link:hover,
-        .nav-link.active {
-            color: var(--accent);
-        }
-
-        /* OPTİMİZE DROPDOWN */
-        .dropdown {
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background: linear-gradient(135deg, rgba(10, 36, 99, 0.95), rgba(62, 146, 204, 0.95));
-            min-width: 280px;
-            box-shadow: var(--shadow);
-            border-radius: var(--radius-sm);
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(10px);
-            transition: all 0.3s ease;
-            z-index: 1001;
-            border: 1px solid rgba(62, 146, 204, 0.3);
-        }
-
-        .dropdown.active {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
-
-        .dropdown-content {
-            padding: 10px 0;
-        }
-
-        .dropdown-section {
-            padding: 15px 20px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .dropdown-section:last-child {
-            border-bottom: none;
-        }
-
-        .dropdown-section h4 {
-            font-size: 0.85rem;
-            color: white;
-            margin-bottom: 10px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .dropdown-link {
-            display: block;
-            padding: 8px 0;
-            color: rgba(255, 255, 255, 0.9);
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: var(--transition);
-        }
-
-        .dropdown-link:hover {
-            color: var(--accent-light);
-            padding-left: 5px;
-        }
-
-        .arrow {
-            font-size: 0.7rem;
-            transition: transform 0.3s ease;
-            color: var(--gray-dark);
-        }
-
-        .nav-item:hover .arrow {
-            transform: rotate(180deg);
-        }
-
-        /* OPTİMİZE HEADER CTA */
-        .header-cta .btn {
-            background: linear-gradient(135deg, var(--accent-light), #FFD93D);
-            color: var(--primary);
-            padding: 12px 28px;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 0.9rem;
-            text-decoration: none;
-            transition: var(--transition);
-            white-space: nowrap;
-            border: none;
-            box-shadow: 0 4px 12px rgba(255, 230, 109, 0.2);
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .header-cta .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(255, 230, 109, 0.3);
-        }
-
-        /* HAMBURGER MENU */
-        .menu-toggle {
-            display: none;
-            flex-direction: column;
-            justify-content: space-between;
-            width: 30px;
-            height: 21px;
-            background: transparent;
-            border: none;
-            cursor: pointer;
-            padding: 0;
-            z-index: 1001;
-        }
-
-        .menu-toggle span {
-            width: 100%;
-            height: 3px;
-            background-color: var(--dark);
-            border-radius: 10px;
-            transition: all 0.3s ease;
-        }
-
-        .menu-toggle.active span:nth-child(1) {
-            transform: rotate(45deg) translate(6px, 6px);
-        }
-
-        .menu-toggle.active span:nth-child(2) {
-            opacity: 0;
-        }
-
-        .menu-toggle.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(7px, -6px);
-        }
-
-        /* OPTİMİZE HERO SECTION - ARKA PLAN RESMİ GERİ EKLENDİ */
-        .hero {
-            background: linear-gradient(rgba(10, 36, 99, 0.85), rgba(62, 146, 204, 0.85)),
-                        url('/images/w4medya-arkaplan1.webp');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            color: var(--white);
-            padding: 160px 5% 140px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            min-height: 85vh;
-            display: flex;
-            align-items: center;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .hero h1 {
-            font-size: clamp(2.5rem, 6vw, 4rem);
-            font-weight: 900;
-            margin-bottom: 30px;
-            line-height: 1.1;
-            background: linear-gradient(45deg, 
-                var(--white) 0%, 
-                var(--accent-light) 25%, 
-                var(--accent) 50%, 
-                var(--gradient-3) 75%, 
-                var(--white) 100%);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            text-shadow: 
-                0 2px 10px rgba(0, 0, 0, 0.3),
-                0 0 30px rgba(62, 146, 204, 0.2);
-            animation: gradientShift 8s ease infinite;
-            background-size: 400% 400%;
-        }
-
-        @keyframes gradientShift {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-        }
-
-        .hero p {
-            font-size: clamp(1.1rem, 2.2vw, 1.5rem);
-            color: rgba(255, 255, 255, 0.95);
-            max-width: 800px;
-            margin: 0 auto 60px;
-            font-weight: 300;
-            line-height: 1.7;
-            text-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
-        }
-
-        /* OPTİMİZE BUTTONLAR */
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            padding: 14px 28px;
-            border-radius: 50px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: var(--transition);
-            border: 2px solid transparent;
-            cursor: pointer;
-            font-size: 1rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        /* ORTAK IŞIK EFEKTİ */
-        .light-effect {
-            position: relative;
-            overflow: hidden;
-        }
-
-        .light-effect::after {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(
-                to right,
-                transparent 0%,
-                rgba(255, 255, 255, 0.3) 50%,
-                transparent 100%
-            );
-            transform: rotate(30deg);
-            animation: lightWave 3s infinite linear;
-            z-index: 1;
-            pointer-events: none;
-        }
-
-        @keyframes lightWave {
-            0% {
-                transform: translateX(-100%) translateY(-100%) rotate(30deg);
-            }
-            100% {
-                transform: translateX(100%) translateY(100%) rotate(30deg);
-            }
-        }
-
-        .light-effect > * {
-            position: relative;
-            z-index: 2;
-        }
-
-        /* BUTON TİPLERİ */
-        .btn-primary {
-            background: linear-gradient(135deg, var(--gradient-1), var(--gradient-3));
-            color: white;
-            border-color: rgba(255, 255, 255, 0.3);
-        }
-
-        .btn-whatsapp {
-            background: linear-gradient(135deg, #25D366, #128C7E);
-            color: white;
-            border-color: rgba(255, 255, 255, 0.3);
-        }
-
-        .btn-yellow {
-            background: linear-gradient(135deg, var(--accent-light), #FFD93D);
-            color: var(--primary);
-        }
-
-        /* HOVER EFEKTLERİ */
-        .btn:hover:not(.floating-btn) {
-            transform: translateY(-3px);
-        }
-
-        .hero-buttons .btn:hover,
-        .cta-buttons .btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-        }
-
-        /* HERO BUTTONS */
-        .hero-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            flex-wrap: wrap;
-            margin-top: 50px;
-        }
-
-        .hero-buttons .btn {
-            min-width: 260px;
-            padding: 18px 40px;
-            font-weight: 700;
-            font-size: 1.1rem;
-        }
-
-        /* OPTİMİZE MOBILE MENU */
-        .mobile-menu {
-            position: fixed;
-            top: 60px;
-            left: 0;
-            right: 0;
-            background: var(--white);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            z-index: 999;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.5s ease;
-            border-top: 1px solid var(--gray-light);
-        }
-
-        .mobile-menu.active {
-            max-height: 80vh;
-            overflow-y: auto;
-        }
-
-        .mobile-nav {
-            padding: 20px;
-        }
-
-        .mobile-nav-item {
-            margin-bottom: 5px;
-        }
-
-        .mobile-nav-link {
-            display: block;
-            padding: 15px;
-            color: var(--gray-dark);
-            text-decoration: none;
-            font-weight: 600;
-            border-bottom: 1px solid var(--gray-light);
-            transition: var(--transition);
-            font-size: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .mobile-nav-link:hover {
-            color: var(--accent);
-        }
-
-        .mobile-cta-btn {
-            background: linear-gradient(135deg, var(--gradient-1), var(--gradient-2)) !important;
-            color: white !important;
-            border: none !important;
-            margin-top: 10px;
-            border-radius: var(--radius-sm);
-        }
-
-        .mobile-dropdown-btn {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            width: 100%;
-            background: none;
-            border: none;
-            padding: 15px;
-            color: var(--gray-dark);
-            font-weight: 600;
-            font-size: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            cursor: pointer;
-            border-bottom: 1px solid var(--gray-light);
-            text-align: left;
-        }
-
-        .mobile-dropdown-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease;
-            background: linear-gradient(135deg, rgba(10, 36, 99, 0.05), rgba(62, 146, 204, 0.05));
-            margin-left: 10px;
-            border-radius: var(--radius-sm);
-        }
-
-        .mobile-dropdown-content.active {
-            max-height: 500px;
-        }
-
-        .mobile-dropdown-section {
-            padding: 10px 20px;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-        }
-
-        .mobile-dropdown-section:last-child {
-            border-bottom: none;
-        }
-
-        .mobile-dropdown-section h4 {
-            font-size: 0.9rem;
-            color: var(--primary);
-            margin-bottom: 8px;
-            font-weight: 700;
-        }
-
-        .mobile-dropdown-link {
-            display: block;
-            padding: 8px 0;
-            color: var(--gray-dark);
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: var(--transition);
-        }
-
-        .mobile-dropdown-link:hover {
-            color: var(--accent);
-            padding-left: 5px;
-        }
-
-        .mobile-arrow {
-            transition: transform 0.3s ease;
-        }
-
-        .mobile-dropdown-btn.active .mobile-arrow {
-            transform: rotate(180deg);
-        }
-
-        /* OPTİMİZE HİZMETLERİMİZ */
-        .services-section {
-            padding: 60px 5% 80px;
-            background: #F8FAFC;
-            margin-top: -20px;
-        }
-
-        .section-header {
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto 60px;
-        }
-
-        .section-title {
-            font-size: clamp(2rem, 4.5vw, 3.2rem);
-            font-weight: 900;
-            margin-bottom: 20px;
-            background: linear-gradient(135deg, var(--gradient-1), var(--gradient-2), var(--gradient-3));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
-        .section-subtitle {
-            font-size: clamp(1.1rem, 1.8vw, 1.3rem);
-            color: var(--gray);
-            line-height: 1.6;
-            margin-top: 20px;
-        }
-
-        .category-title {
-            font-size: 1.8rem;
-            font-weight: 900;
-            margin-bottom: 40px;
-            color: var(--primary);
-            padding-left: 15px;
-            border-left: 4px solid var(--accent);
-        }
-
-        .services-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .service-category {
-            margin-bottom: 80px;
-        }
-
-        .service-category:last-child {
-            margin-bottom: 0;
-        }
-
-        .category-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        /* iOS FIX: OPTİMİZE FLIP CARD - DÜZELTİLDİ */
-        .flip-card {
-            position: relative;
-            height: 280px;
-            transform-style: preserve-3d;
-            -webkit-transform-style: preserve-3d; /* iOS için */
-            transition: transform 0.6s ease;
-            -webkit-transition: transform 0.6s ease; /* iOS için */
-            border-radius: var(--radius);
-            cursor: pointer;
-            background: white;
-            /* iOS FIX 1: */
-            perspective: 1000px;
-            -webkit-perspective: 1000px; /* iOS için */
-            transform: translate3d(0,0,0);
-            -webkit-transform: translate3d(0,0,0); /* iOS için */
-        }
-
-        .flip-card:hover:not(.flipped) {
-            transform: translateY(-5px) translate3d(0,0,0);
-            -webkit-transform: translateY(-5px) translate3d(0,0,0); /* iOS için */
-        }
-
-        .flip-card.flipped {
-            transform: rotateY(180deg) translateZ(1px); /* iOS için küçük Z değeri */
-            -webkit-transform: rotateY(180deg) translateZ(1px); /* iOS için */
-        }
-
-        .card-face {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border-radius: var(--radius);
-            backface-visibility: hidden;
-            -webkit-backface-visibility: hidden; /* iOS için kritik */
-            padding: 30px 20px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            overflow: hidden;
-            /* iOS FIX 2: */
-            transform: translate3d(0,0,0);
-            -webkit-transform: translate3d(0,0,0); /* iOS için */
-        }
-
-        .card-front {
-            background: white;
-            border: 1px solid rgba(0, 0, 0, 0.1);
-        }
-
-        .card-front::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--accent), var(--accent-light));
-            border-radius: var(--radius) var(--radius) 0 0;
-        }
-
-        .card-front .icon {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            width: 80px;
-            height: 80px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            transition: var(--transition);
-            color: white;
-            /* iOS FIX 3: İkon flicker sorunu için */
-            backface-visibility: hidden;
-            -webkit-backface-visibility: hidden; /* iOS için */
-            transform: translateZ(0);
-            -webkit-transform: translateZ(0); /* iOS için */
-        }
-
-        /* OPTİMİZE İKON RENKLERİ */
-        .icon-google { background: linear-gradient(45deg, #4285F4, #34A853, #FBBC05, #EA4335); }
-        .icon-instagram { background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D); }
-        .icon-facebook { background: linear-gradient(45deg, #1877F2, #0A66C2); }
-        .icon-maps { background: linear-gradient(45deg, #4285F4, #0F9D58); }
-        .icon-seo { background: linear-gradient(45deg, var(--accent-light), var(--accent)); }
-        .icon-social { background: linear-gradient(45deg, #3B5998, #1DA1F2); }
-        .icon-ecommerce { background: linear-gradient(45deg, #FF6B6B, #FFD93D); }
-        .icon-corporate { background: linear-gradient(45deg, var(--gradient-3), #3E92CC); }
-        .icon-video { background: linear-gradient(45deg, #FF0000, #FF6B6B); }
-        .icon-film { background: linear-gradient(45deg, #6A5ACD, #9370DB); }
-        .icon-drone { background: linear-gradient(45deg, #3E92CC, #4ECDC4); }
-
-        .flip-card:hover .card-front .icon {
-            transform: scale(1.1) rotate(5deg) translateZ(0);
-            -webkit-transform: scale(1.1) rotate(5deg) translateZ(0); /* iOS için */
-        }
-
-        .card-front h3 {
-            font-size: 1.4rem;
-            font-weight: 800;
-            color: var(--primary);
-            margin: 0;
-        }
-
-        .card-back {
-            background: linear-gradient(135deg, 
-                rgba(10, 36, 99, 0.95), 
-                rgba(62, 146, 204, 0.95));
-            color: var(--white);
-            transform: rotateY(180deg) translate3d(0,0,0); /* iOS için düzeltme */
-            -webkit-transform: rotateY(180deg) translate3d(0,0,0); /* iOS için */
-            justify-content: space-between;
-            padding: 30px 20px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .card-back h3 {
-            font-size: 1.4rem;
-            font-weight: 800;
-            margin-bottom: 15px;
-            color: white;
-            line-height: 1.3;
-        }
-
-        .card-back p {
-            font-size: 1rem;
-            line-height: 1.5;
-            opacity: 0.95;
-            margin-bottom: 20px;
-            color: rgba(255, 255, 255, 0.95);
-            overflow: hidden;
-            display: -webkit-box;
-            -webkit-line-clamp: 3;
-            -webkit-box-orient: vertical;
-        }
-
-        .card-back .btn {
-            background: white;
-            color: var(--primary);
-            padding: 12px 24px; 
-            font-weight: 600;
-            font-size: 0.95rem; 
-            border-radius: 50px;
-            text-decoration: none;
-            width: 100%;
-            max-width: 180px; 
-            margin: 0 auto;
-            white-space: nowrap; 
-        }
-
-        /* NEDEN BİZ SECTION */
-        .why-us {
-            padding: 100px 5%;
-            background: linear-gradient(135deg, var(--gradient-1) 0%, var(--gradient-2) 50%, var(--gradient-3) 100%);
-            color: white;
-        }
-
-        .why-us .section-title {
-            background: linear-gradient(135deg, #ffffff, var(--accent-light));
-            -webkit-background-clip: text;
-            background-clip: text;
-        }
-
-        .why-us .section-subtitle {
-            color: rgba(255, 255, 255, 0.9);
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .feature {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 40px 30px;
-            border-radius: var(--radius);
-            text-align: center;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            transition: var(--transition);
-        }
-
-        .feature:hover {
-            transform: translateY(-5px);
-            background: rgba(255, 255, 255, 0.15);
-        }
-
-        .feature-icon {
-            width: 80px;
-            height: 80px;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 20px;
-            color: white;
-            font-size: 2rem;
-            transition: var(--transition);
-        }
-
-        .feature:hover .feature-icon {
-            transform: scale(1.1);
-        }
-
-        .feature h3 {
-            font-size: 1.3rem;
-            margin-bottom: 15px;
-            color: white;
-            font-weight: 700;
-        }
-
-        .feature p {
-            color: rgba(255, 255, 255, 0.9);
-            line-height: 1.6;
-            font-size: 1rem;
-        }
-
-        /* OPTİMİZE CTA SECTION */
-        .cta-section {
-            padding: 100px 5%;
-            background: linear-gradient(135deg, 
-                rgba(10, 36, 99, 0.95), 
-                rgba(62, 146, 204, 0.95));
-            text-align: center;
-            color: white;
-        }
-
-        .cta-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .cta-section h2 {
-            font-size: clamp(2rem, 4.5vw, 3.2rem);
-            font-weight: 900;
-            margin-bottom: 20px;
-            line-height: 1.2;
-            background: linear-gradient(45deg, white, var(--accent-light), var(--accent));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            animation: gradientShift 8s ease infinite;
-            background-size: 400% 400%;
-        }
-
-        .cta-section p {
-            font-size: clamp(1.1rem, 1.8vw, 1.4rem);
-            max-width: 700px;
-            margin: 0 auto 40px;
-            opacity: 0.95;
-            line-height: 1.6;
-        }
-
-        .cta-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        .cta-buttons .btn {
-            min-width: 240px;
-            padding: 18px 40px;
-            font-weight: 700;
-            font-size: 1.1rem;
-        }
-
-        /* OPTİMİZE FLOATING BUTTONS */
-        .floating-cta {
-            position: fixed;
-            bottom: 120px;
-            right: 20px;
-            z-index: 998;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .floating-btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 65px;
-            height: 65px;
-            border-radius: 50%;
-            transition: var(--transition);
-            text-decoration: none;
-            font-size: 1.9rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .floating-btn:hover {
-            transform: scale(1.1) rotate(5deg);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
-        }
-
-        .floating-whatsapp {
-            background: linear-gradient(135deg, #25D366, #128C7E);
-            color: white;
-            animation: pulse 2s infinite;
-            box-shadow: 0 15px 40px rgba(37, 211, 102, 0.4);
-        }
-
-        .floating-phone {
-            background: linear-gradient(135deg, var(--gradient-1), var(--gradient-3));
-            color: white;
-            box-shadow: 0 15px 40px rgba(20, 94, 141, 0.4);
-        }
-
-        @keyframes pulse {
-            0% {
-                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
-            }
-            70% {
-                box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
-            }
-            100% {
-                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
-            }
-        }
-
-        /* OPTİMİZE FOOTER */
-        .footer {
-            background: white;
-            color: var(--dark);
-            padding: 80px 5% 40px;
-            border-top: 4px solid var(--accent);
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 50px;
-            margin-bottom: 60px;
-        }
-
-        .footer-section h3 {
-            font-size: 1.3rem;
-            font-weight: 800;
-            margin-bottom: 25px;
-            color: var(--primary);
-            position: relative;
-            display: inline-block;
-            padding-bottom: 10px;
-        }
-
-        .footer-section h3::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 40px;
-            height: 3px;
-            background: linear-gradient(90deg, var(--accent), var(--accent-light));
-        }
-
-        .footer-logo {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            margin-bottom: 20px;
-        }
-
-        .footer-logo img {
-            height: 60px;
-            width: auto;
-        }
-
-        .footer-logo-text {
-            font-size: 1.5rem;
-            font-weight: 900;
-            color: var(--primary);
-        }
-
-        .footer-description {
-            color: var(--gray-dark);
-            line-height: 1.6;
-            margin-bottom: 30px;
-            font-size: 1rem;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 10px;
-            margin-top: 20px;
-        }
-
-        .social-link {
-            width: 45px;
-            height: 45px;
-            background: var(--gray-light);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--dark);
-            text-decoration: none;
-            transition: var(--transition);
-        }
-
-        .social-link:hover {
-            background: var(--accent);
-            color: white;
-            transform: translateY(-3px);
-        }
-
-        .footer-links {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: 12px;
-        }
-
-        .footer-links a {
-            color: var(--gray-dark);
-            text-decoration: none;
-            transition: var(--transition);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 1rem;
-        }
-
-        .footer-links a:hover {
-            color: var(--accent);
-        }
-
-        .footer-links i {
-            color: var(--accent);
-            font-size: 0.8rem;
-        }
-
-        .contact-info {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 15px;
-            color: var(--gray-dark);
-        }
-
-        .contact-item i {
-            width: 40px;
-            height: 40px;
-            background: var(--gray-light);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--primary);
-            font-size: 1rem;
-            flex-shrink: 0;
-            transition: var(--transition);
-        }
-
-        .contact-item:hover i {
-            background: var(--accent);
-            color: white;
-        }
-
-        .contact-item a {
-            color: var(--dark);
-            text-decoration: none;
-            transition: var(--transition);
-            font-weight: 600;
-            font-size: 1.1rem;
-            display: block;
-            margin-bottom: 5px;
-        }
-
-        .contact-item a:hover {
-            color: var(--accent);
-        }
-
-        .contact-item span {
-            color: var(--gray);
-            line-height: 1.6;
-            font-size: 1rem;
-        }
-
-        .footer-bottom {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding-top: 40px;
-            border-top: 1px solid var(--gray-light);
-            text-align: center;
-            color: var(--gray);
-            font-size: 0.9rem;
-        }
-
-        .footer-bottom a {
-            color: var(--primary);
-            text-decoration: none;
-            font-weight: 600;
-            transition: var(--transition);
-        }
-
-        .footer-bottom a:hover {
-            color: var(--accent);
-        }
-
-        /* DRONE ICON FIX - GÜNCELLENDİ */
-        .fa-drone:before {
-            content: "\f5d1"; /* helicopter icon */
-            font-family: "Font Awesome 5 Free";
-            font-weight: 900;
-        }
-
-        /* OPTİMİZE RESPONSIVE */
-        @media (max-width: 1024px) {
-            .nav-desktop {
-                display: none;
-            }
-            
-            .menu-toggle {
-                display: flex;
-            }
-            
-            .header-cta {
-                display: none;
-            }
-            
-            .category-grid {
-                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            }
-        }
-
-        @media (max-width: 768px) {
-            .hero {
-                padding: 140px 4% 80px;
-                min-height: auto;
-                background-attachment: scroll;
-            }
-            
-            .services-section {
-                padding: 40px 4% 80px;
-            }
-            
-            .category-title {
-                font-size: 1.6rem;
-            }
-            
-            .flip-card {
-                height: 260px;
-            }
-            
-            .hero-buttons,
-            .cta-buttons {
-                flex-direction: column;
-                align-items: center;
-                gap: 20px;
-            }
-            
-            .hero-buttons .btn,
-            .cta-buttons .btn {
-                width: 100%;
-                max-width: 320px;
-                padding: 16px 32px;
-            }
-            
-            .category-grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-            
-            .card-back {
-                padding: 25px 15px;
-            }
-            
-            .card-back p {
-                font-size: 0.95rem;
-            }
-            
-            .card-back .btn {
-                padding: 10px 20px;
-                font-size: 0.9rem;
-                max-width: 160px;
-                white-space: nowrap;
-            }
-            
-            .footer-content {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-            
-            .floating-cta {
-                bottom: 100px;
-                right: 15px;
-            }
-            
-            .floating-btn {
-                width: 60px;
-                height: 60px;
-                font-size: 1.6rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .header {
-                padding: 0 20px;
-            }
-            
-            .logo img {
-                max-height: 50px;
-            }
-            
-            .hero {
-                padding: 120px 20px 60px;
-            }
-            
-            .hero h1 {
-                font-size: 2rem;
-            }
-            
-            .hero p {
-                font-size: 1.1rem;
-                margin-bottom: 30px;
-            }
-            
-            .services-section {
-                padding: 30px 20px 60px;
-                margin-top: -10px;
-            }
-            
-            .category-title {
-                font-size: 1.4rem;
-            }
-            
-            .flip-card {
-                height: 240px;
-            }
-            
-            .card-face {
-                padding: 25px 15px;
-            }
-            
-            .card-front .icon {
-                width: 70px;
-                height: 70px;
-            }
-            
-            .card-front h3,
-            .card-back h3 {
-                font-size: 1.2rem;
-            }
-            
-            .card-back p {
-                font-size: 0.9rem;
-            }
-            
-            .card-back .btn {
-                background: white;
-                color: var(--primary);
-                padding: 12px 24px; 
-                font-weight: 600;
-                font-size: 0.95rem; 
-                border-radius: 50px;
-                text-decoration: none;
-                width: 100%;
-                max-width: 180px; 
-                margin: 0 auto;
-                white-space: nowrap; 
-            }
-            
-            .footer {
-                padding: 60px 20px 30px;
-            }
-            
-            .footer-logo img {
-                height: 50px;
-            }
-            
-            .footer-logo-text {
-                font-size: 1.3rem;
-            }
-            
-            .floating-cta {
-                bottom: 80px;
-                right: 10px;
-                gap: 12px;
-            }
-            
-            .floating-btn {
-                width: 55px;
-                height: 55px;
-                font-size: 1.5rem;
-            }
-        }
-    </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="theme-color" content="#0a0a0a" />
+
+<!-- ========= SEO ========= -->
+<title>Gaziantep Akü Servisi | 7/24 Mobil Akü Yol Yardım | 0544 282 27 97</title>
+<meta name="description" content="Gaziantep Akü Servisi olarak 7/24 mobil akü, acil akü değişimi ve yolda kalma yol yardım hizmeti sunuyoruz. Şahinbey, Şehitkamil ve tüm ilçelerde 15 dakikada yerinizdeyiz. Inci, Mutlu, Varta akü çeşitleri uygun fiyatla." />
+<meta name="keywords" content="gaziantep akü servisi, gaziantep akü, mobil akü gaziantep, 7/24 akü gaziantep, akü değişimi gaziantep, şahinbey akü, şehitkamil akü, inci akü gaziantep, mutlu akü gaziantep, varta akü gaziantep, yolda kalma akü, acil akü gaziantep" />
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
+<meta name="author" content="Gaziantep Akü Servisi" />
+<meta name="geo.region" content="TR-27" />
+<meta name="geo.placename" content="Gaziantep" />
+<meta name="geo.position" content="37.0662;37.3833" />
+<meta name="ICBM" content="37.0662, 37.3833" />
+<link rel="canonical" href="https://www.gaziantepakuservisim.com/" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="tr_TR" />
+<meta property="og:title" content="Gaziantep Akü Servisi | 7/24 Mobil Akü Yol Yardım" />
+<meta property="og:description" content="Gaziantep'te 7/24 mobil akü ve yol yardım hizmeti. 15 dakika içinde yerinizdeyiz. Inci, Mutlu, Varta akü çeşitleri." />
+<meta property="og:url" content="https://www.gaziantepakuservisim.com/" />
+<meta property="og:site_name" content="Gaziantep Akü Servisi" />
+<meta property="og:image" content="https://www.gaziantepakuservisim.com/images/gaziantep-aku-servis.webp" />
+<meta property="og:image:width" content="1536" />
+<meta property="og:image:height" content="1024" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Gaziantep Akü Servisi | 7/24 Mobil Akü" />
+<meta name="twitter:description" content="Gaziantep'te 7/24 mobil akü ve yol yardım. 15 dakikada yerinizdeyiz." />
+<meta name="twitter:image" content="https://www.gaziantepakuservisim.com/images/gaziantep-aku-servis.webp" />
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" href="/images/gaziantep-aku-servisim-logo.png" />
+<link rel="apple-touch-icon" href="/images/gaziantep-aku-servisim-logo.png" />
+
+<!-- ========= Schema.org JSON-LD ========= -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "AutoPartsStore",
+      "@id": "https://www.gaziantepakuservisim.com/#business",
+      "name": "Gaziantep Akü Servisi",
+      "image": "https://www.gaziantepakuservisim.com/images/gaziantep-aku-servisim-logo.png",
+      "logo": "https://www.gaziantepakuservisim.com/images/gaziantep-aku-servisim-logo.png",
+      "url": "https://www.gaziantepakuservisim.com/",
+      "telephone": "+905442822797",
+      "priceRange": "₺₺",
+      "description": "Gaziantep'te 7/24 mobil akü servisi, yol yardım ve acil akü değişim hizmeti.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Sanayi Sitesi, Gündoğdu Caddesi No: 5/A",
+        "addressLocality": "Şehitkamil",
+        "addressRegion": "Gaziantep",
+        "addressCountry": "TR"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 37.0662,
+        "longitude": 37.3833
+      },
+      "openingHoursSpecification": [{
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+        "opens": "00:00",
+        "closes": "23:59"
+      }],
+      "areaServed": [
+        {"@type": "City", "name": "Gaziantep"},
+        {"@type": "AdministrativeArea", "name": "Şahinbey"},
+        {"@type": "AdministrativeArea", "name": "Şehitkamil"},
+        {"@type": "AdministrativeArea", "name": "Oğuzeli"},
+        {"@type": "AdministrativeArea", "name": "Nizip"},
+        {"@type": "AdministrativeArea", "name": "İslahiye"},
+        {"@type": "AdministrativeArea", "name": "Nurdağı"},
+        {"@type": "AdministrativeArea", "name": "Araban"},
+        {"@type": "AdministrativeArea", "name": "Yavuzeli"},
+        {"@type": "AdministrativeArea", "name": "Karkamış"}
+      ],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "327",
+        "bestRating": "5",
+        "worstRating": "1"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Gaziantep akü servisiniz kaç dakikada yerime gelir?",
+          "acceptedAnswer": {"@type": "Answer", "text": "Gaziantep merkez ilçelerinde (Şahinbey, Şehitkamil) ortalama 15-20 dakika içerisinde yerinizdeyiz. Diğer ilçelerde ulaşım süresi mesafeye göre değişmektedir."}
+        },
+        {
+          "@type": "Question",
+          "name": "7/24 akü servisi gerçekten gece de hizmet veriyor mu?",
+          "acceptedAnswer": {"@type": "Answer", "text": "Evet, Gaziantep Akü Servisi olarak 0544 282 27 97 numaramız üzerinden gece-gündüz, hafta sonu ve resmi tatiller dahil kesintisiz hizmet veriyoruz."}
+        },
+        {
+          "@type": "Question",
+          "name": "Mobil akü hizmeti ek ücret gerektirir mi?",
+          "acceptedAnswer": {"@type": "Answer", "text": "Şehir merkezinde mobil akü hizmetimiz ücretsizdir. Yalnızca aldığınız akünün bedelini ödersiniz. Eski akünüzü iade ettiğinizde hurda bedeli düşülür."}
+        },
+        {
+          "@type": "Question",
+          "name": "Hangi akü markalarını satıyorsunuz?",
+          "acceptedAnswer": {"@type": "Answer", "text": "İnci Akü, Mutlu Akü, Varta ve Platin başta olmak üzere orijinal marka aküleri uygun fiyat garantisi ile sunuyoruz."}
+        },
+        {
+          "@type": "Question",
+          "name": "Akünün ömrü ne kadardır?",
+          "acceptedAnswer": {"@type": "Answer", "text": "Standart bir kurşun-asit akünün ömrü kullanım koşullarına göre 3 ila 5 yıl arasında değişir. EFB ve AGM aküler 5-7 yıla kadar dayanabilir."}
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<!-- ========= Fonts (Distinctive) ========= -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Bebas+Neue&family=Manrope:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet" />
+
+<style>
+/* ============================================================
+   ROOT TOKENS
+   ============================================================ */
+:root{
+  --ink:#0a0a0a;
+  --ink-2:#1a1a1a;
+  --ink-3:#2a2a2a;
+  --bone:#fafaf7;
+  --paper:#ffffff;
+  --line:#e8e6dc;
+  --mute:#6b6b6b;
+
+  --bolt:#ffd60a;          /* sarı - akü/şimşek */
+  --bolt-2:#ffb700;        /* derin sarı */
+  --bolt-soft:#fff4b8;     /* açık sarı */
+  --danger:#ff3b30;        /* acil */
+  --ok:#22c55e;            /* online */
+
+  --shadow-lg: 0 30px 60px -20px rgba(10,10,10,.35);
+  --shadow-yellow: 0 20px 40px -15px rgba(255,183,0,.55);
+
+  --font-display: 'Archivo Black', 'Bebas Neue', sans-serif;
+  --font-headline: 'Bebas Neue', 'Archivo Black', sans-serif;
+  --font-body: 'Manrope', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --radius-sm: 6px;
+  --radius: 14px;
+  --radius-lg: 26px;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  font-family: var(--font-body);
+  color: var(--ink);
+  background: var(--bone);
+  line-height: 1.55;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+section{position:relative}
+
+/* Reusable container */
+.wrap{max-width: 1280px; margin: 0 auto; padding: 0 28px}
+@media (max-width:640px){ .wrap{padding:0 18px} }
+
+/* ============================================================
+   ANNOUNCEMENT BAR
+   ============================================================ */
+.announce{
+  background: var(--ink);
+  color: var(--bone);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  overflow: hidden;
+  border-bottom: 1px solid var(--bolt);
+}
+.announce-track{
+  display:flex;
+  gap:60px;
+  padding: 10px 0;
+  white-space: nowrap;
+  animation: marquee 35s linear infinite;
+  width: max-content;
+}
+.announce-track span{display:inline-flex;align-items:center;gap:10px}
+.announce-track .dot{width:6px;height:6px;background:var(--bolt);border-radius:50%;animation: pulse 1.4s infinite}
+@keyframes marquee{ from{transform:translateX(0)} to{transform:translateX(-50%)} }
+@keyframes pulse{ 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.4;transform:scale(.7)} }
+
+/* ============================================================
+   NAV
+   ============================================================ */
+.nav{
+  position: sticky; top: 0; z-index: 90;
+  background: rgba(255,255,255,.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--line);
+}
+.nav-inner{
+  display:flex; align-items:center; justify-content:space-between;
+  padding: 14px 0;
+}
+.brand{display:flex;align-items:center;gap:12px}
+.brand img{height: 52px; width:auto; object-fit:contain}
+.brand-text{display:flex;flex-direction:column;line-height:1}
+.brand-text strong{
+  font-family: var(--font-headline);
+  font-size: 22px; letter-spacing: .04em;
+  color: var(--ink);
+}
+.brand-text small{
+  font-family: var(--font-mono);
+  font-size: 10px; color: var(--mute);
+  letter-spacing: .15em; text-transform: uppercase;
+  margin-top: 3px;
+}
+.nav-links{display:flex;gap:34px;align-items:center}
+.nav-links a{
+  font-size: 14px; font-weight: 600;
+  color: var(--ink-2);
+  position: relative;
+  transition: color .2s;
+}
+.nav-links a::after{
+  content:""; position:absolute; left:0; bottom:-6px;
+  width:0; height:2px; background:var(--bolt);
+  transition: width .3s ease;
+}
+.nav-links a:hover{color:var(--ink)}
+.nav-links a:hover::after{width:100%}
+
+.nav-cta{
+  display:inline-flex;align-items:center;gap:10px;
+  background: var(--bolt);
+  color: var(--ink);
+  padding: 12px 20px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 14px;
+  transition: transform .2s, box-shadow .2s, background .2s;
+  border: 2px solid var(--bolt);
+}
+.nav-cta:hover{transform: translateY(-2px); box-shadow: var(--shadow-yellow); background:var(--bolt-2); border-color:var(--bolt-2)}
+.nav-cta .ring{
+  width:8px;height:8px;background:var(--ok);border-radius:50%;
+  box-shadow: 0 0 0 0 rgba(34,197,94,.7);
+  animation: ring 1.6s infinite;
+}
+@keyframes ring{ 0%{box-shadow:0 0 0 0 rgba(34,197,94,.7)} 70%{box-shadow:0 0 0 10px rgba(34,197,94,0)} 100%{box-shadow:0 0 0 0 rgba(34,197,94,0)} }
+
+@media (max-width: 880px){
+  .nav-links{display:none}
+  .brand img{height: 44px}
+  .brand-text strong{font-size:18px}
+}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero{
+  position: relative;
+  padding: 80px 0 100px;
+  background:
+    radial-gradient(1000px 600px at 85% -10%, rgba(255,214,10,.35), transparent 60%),
+    radial-gradient(800px 500px at -10% 110%, rgba(255,214,10,.15), transparent 60%),
+    var(--bone);
+  overflow: hidden;
+}
+.hero::before{
+  content:"";
+  position:absolute; inset:0;
+  background-image:
+    linear-gradient(rgba(10,10,10,.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(10,10,10,.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse at center, black 30%, transparent 80%);
+  -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 80%);
+  pointer-events:none;
+}
+.hero-grid{
+  display:grid; grid-template-columns: 1.2fr .8fr;
+  gap: 60px; align-items: center;
+  position: relative; z-index: 2;
+}
+@media (max-width: 980px){ .hero-grid{grid-template-columns:1fr; gap:50px} }
+
+.hero-eyebrow{
+  display:inline-flex; align-items:center; gap:10px;
+  background: var(--ink);
+  color: var(--bone);
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  margin-bottom: 26px;
+  animation: fadeUp .8s .1s both;
+}
+.hero-eyebrow svg{width:14px;height:14px;color:var(--bolt)}
+
+.hero h1{
+  font-family: var(--font-display);
+  font-size: clamp(40px, 6.8vw, 92px);
+  line-height: .92;
+  letter-spacing: -.02em;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin-bottom: 22px;
+  animation: fadeUp .9s .2s both;
+}
+.hero h1 .highlight{
+  position: relative;
+  display: inline-block;
+  color: var(--ink);
+}
+.hero h1 .highlight::before{
+  content:"";
+  position:absolute;
+  left:-6px; right:-6px; top:18%; bottom:-2%;
+  background: var(--bolt);
+  z-index:-1;
+  transform: skewX(-6deg);
+}
+.hero h1 .bolt{
+  display:inline-block;
+  color: var(--bolt-2);
+  -webkit-text-stroke: 2px var(--ink);
+  text-stroke: 2px var(--ink);
+}
+
+.hero-sub{
+  font-size: clamp(15px, 1.6vw, 19px);
+  color: var(--ink-3);
+  max-width: 580px;
+  margin-bottom: 36px;
+  animation: fadeUp 1s .3s both;
+}
+.hero-sub strong{color:var(--ink); font-weight:700; background: linear-gradient(180deg, transparent 60%, var(--bolt-soft) 60%); padding: 0 3px}
+
+.hero-cta-row{
+  display:flex;flex-wrap:wrap;gap:14px;
+  animation: fadeUp 1.1s .4s both;
+}
+.btn{
+  display:inline-flex;align-items:center;gap:12px;
+  padding: 18px 28px;
+  border-radius: 999px;
+  font-weight: 800;
+  font-size: 15px;
+  letter-spacing: .02em;
+  transition: transform .25s, box-shadow .25s, background .25s;
+  position: relative;
+  overflow: hidden;
+}
+.btn-primary{
+  background: #1877f2;
+  color: #ffffff;
+  border: 2px solid #1877f2;
+}
+.btn-primary:hover{
+  transform: translateY(-3px);
+  box-shadow: 0 20px 30px -15px rgba(24,119,242,.6);
+  background: #0d63d6;
+  color: #ffffff;
+  border-color: #0d63d6;
+}
+.btn-primary .num{font-family: var(--font-mono); font-size: 15px}
+.btn-secondary{
+  background: #25d366;
+  color: #ffffff;
+  border: 2px solid #25d366;
+}
+.btn-secondary:hover{
+  transform: translateY(-3px);
+  background: #1ebe5d;
+  border-color: #1ebe5d;
+  box-shadow: 0 20px 30px -15px rgba(37,211,102,.6);
+}
+
+.btn .ico{width:20px;height:20px;flex-shrink:0}
+
+.hero-meta{
+  display:flex;gap:28px;margin-top:42px;flex-wrap:wrap;
+  animation: fadeUp 1.2s .55s both;
+}
+.hero-meta-item{display:flex;align-items:center;gap:10px}
+.hero-meta-item svg{width:18px;height:18px;color:var(--ok)}
+.hero-meta-item span{font-size:13px;color:var(--ink-2);font-weight:600}
+
+/* Hero visual */
+.hero-visual{position:relative;animation: fadeUp 1s .35s both}
+.hero-visual-frame{
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--ink);
+  box-shadow: var(--shadow-lg);
+  aspect-ratio: 3/4;
+}
+.hero-visual-frame img{
+  width:100%;height:100%;object-fit:cover;
+  transform: scale(1.05);
+  transition: transform 8s ease;
+  animation: slowZoom 16s ease-in-out infinite alternate;
+}
+@keyframes slowZoom{ from{transform:scale(1.05)} to{transform:scale(1.18)} }
+.hero-visual-frame::after{
+  content:"";
+  position:absolute; inset:0;
+  background: linear-gradient(180deg, transparent 40%, rgba(0,0,0,.75) 100%);
+}
+.hero-visual-badge{
+  position: absolute;
+  top: 18px; left: 18px;
+  background: var(--bolt);
+  color: var(--ink);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: .15em;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-weight: 700;
+  display:flex; align-items:center; gap:8px;
+  z-index: 2;
+}
+.hero-visual-badge::before{
+  content:""; width:8px;height:8px;background:var(--ink);border-radius:50%;
+  animation: pulse 1.2s infinite;
+}
+.hero-visual-caption{
+  position:absolute; left:24px; right:24px; bottom:22px;
+  color: var(--bone);
+  z-index: 2;
+}
+.hero-visual-caption h4{
+  font-family: var(--font-headline);
+  font-size: 28px;
+  letter-spacing: .04em;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+.hero-visual-caption p{font-size:13px;opacity:.85}
+
+/* Floating stat card */
+.float-card{
+  position: absolute;
+  background: var(--paper);
+  border-radius: var(--radius);
+  padding: 16px 18px;
+  box-shadow: var(--shadow-lg);
+  display:flex;align-items:center;gap:14px;
+  z-index: 3;
+}
+.float-card-1{bottom: -24px; left: -30px; animation: floaty 4s ease-in-out infinite}
+.float-card-2{top: 40%; right: -40px; animation: floaty 4s ease-in-out infinite reverse}
+@keyframes floaty{ 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
+.float-card .ico-wrap{
+  width:42px;height:42px;
+  background: var(--bolt);
+  border-radius: 12px;
+  display:grid;place-items:center;
+  flex-shrink:0;
+}
+.float-card .ico-wrap svg{width:22px;height:22px;color:var(--ink)}
+.float-card strong{display:block;font-size:18px;font-weight:800;color:var(--ink);font-family:var(--font-headline);letter-spacing:.04em}
+.float-card span{font-size:11px;color:var(--mute);text-transform:uppercase;letter-spacing:.1em;font-weight:600}
+
+@media (max-width: 980px){
+  .float-card-1{left:auto; right: 10px; bottom:-20px}
+  .float-card-2{right: 10px; top: 20px}
+}
+@media (max-width: 520px){
+  .float-card{padding: 12px 14px}
+  .float-card .ico-wrap{width:36px;height:36px}
+  .hero-visual-frame{aspect-ratio: 4/5}
+}
+
+@keyframes fadeUp{ from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:translateY(0)} }
+
+/* ============================================================
+   TRUST STRIP / STATS
+   ============================================================ */
+.stats{
+  background: var(--ink);
+  color: var(--bone);
+  padding: 70px 0;
+  position: relative;
+  overflow: hidden;
+}
+.stats::before{
+  content:"AKÜ • SERVİS • 7/24 • GAZİANTEP • MOBİL • YOL YARDIM •";
+  position:absolute;
+  top:50%; left:0; transform:translateY(-50%);
+  font-family: var(--font-display);
+  font-size: 280px;
+  white-space: nowrap;
+  color: rgba(255,255,255,.025);
+  pointer-events:none;
+  letter-spacing: -.02em;
+  animation: marquee 60s linear infinite;
+}
+.stats-grid{
+  display:grid;grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  position: relative; z-index: 1;
+}
+.stat{
+  text-align: center;
+  padding: 0 10px;
+  position: relative;
+}
+.stat:not(:last-child)::after{
+  content:"";
+  position:absolute; right:-15px; top:20%; bottom:20%;
+  width:1px; background: rgba(255,255,255,.12);
+}
+.stat .num{
+  font-family: var(--font-display);
+  font-size: clamp(46px, 6vw, 78px);
+  line-height: 1;
+  color: var(--bolt);
+  letter-spacing: -.02em;
+}
+.stat .num sup{font-size:.4em;color:var(--bone);vertical-align: super;margin-left:4px}
+.stat .label{
+  margin-top: 12px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.7);
+}
+@media (max-width: 780px){
+  .stats-grid{grid-template-columns: repeat(2,1fr); gap: 40px 20px}
+  .stat:nth-child(2)::after{display:none}
+}
+
+/* ============================================================
+   SERVICES
+   ============================================================ */
+.section{padding: 110px 0}
+.section-head{
+  display:grid; grid-template-columns: 1fr 1fr; gap:40px;
+  align-items: end; margin-bottom: 60px;
+}
+@media (max-width: 880px){ .section-head{grid-template-columns:1fr; gap:20px} }
+.section-eyebrow{
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: .25em;
+  text-transform: uppercase;
+  color: var(--mute);
+  display:flex;align-items:center;gap:14px;
+  margin-bottom: 18px;
+}
+.section-eyebrow::before{
+  content:""; width: 28px; height: 2px; background: var(--bolt);
+}
+.section h2{
+  font-family: var(--font-display);
+  font-size: clamp(34px, 4.5vw, 60px);
+  line-height: .95;
+  letter-spacing: -.015em;
+  text-transform: uppercase;
+}
+.section h2 em{
+  font-style: normal;
+  background: linear-gradient(180deg, transparent 65%, var(--bolt) 65%);
+  padding: 0 6px;
+}
+.section-lead{
+  color: var(--ink-3);
+  font-size: 16px;
+  max-width: 480px;
+}
+
+.services-grid{
+  display:grid; grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+@media (max-width: 880px){ .services-grid{grid-template-columns: 1fr} }
+
+.service-card{
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 34px 28px 30px;
+  transition: transform .35s, box-shadow .35s, border-color .35s;
+  position: relative;
+  overflow: hidden;
+}
+.service-card::before{
+  content:"";
+  position:absolute; top:0; left:0; right:0; height:3px;
+  background: var(--bolt);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .4s;
+}
+.service-card:hover{
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--ink);
+}
+.service-card:hover::before{transform: scaleX(1)}
+.service-card .num{
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: .2em;
+  color: var(--mute);
+  margin-bottom: 22px;
+}
+.service-card .ico{
+  width: 56px; height: 56px;
+  background: var(--bolt);
+  border-radius: 14px;
+  display:grid;place-items:center;
+  margin-bottom: 22px;
+  transition: transform .35s;
+}
+.service-card:hover .ico{transform: rotate(-8deg) scale(1.08)}
+.service-card .ico svg{width:28px;height:28px;color:var(--ink)}
+.service-card h3{
+  font-family: var(--font-headline);
+  font-size: 26px;
+  letter-spacing: .03em;
+  margin-bottom: 12px;
+  color: var(--ink);
+}
+.service-card p{
+  font-size: 14.5px;
+  color: var(--ink-3);
+  margin-bottom: 20px;
+}
+.service-card .link{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--ink);
+  border-bottom: 2px solid var(--bolt);
+  padding-bottom: 2px;
+}
+.service-card .link svg{width:14px;height:14px;transition: transform .2s}
+.service-card .link:hover svg{transform: translateX(4px)}
+
+/* ============================================================
+   FULL-WIDTH IMAGE STRIP (clickable)
+   ============================================================ */
+.image-strip{
+  padding: 0;
+  background: var(--ink);
+}
+.image-strip-grid{
+  display:grid;grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  background: var(--ink);
+}
+@media (max-width: 880px){ .image-strip-grid{grid-template-columns: 1fr} }
+
+.strip-item{
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 3/2;
+  cursor: pointer;
+  background: var(--ink-2);
+}
+.strip-item img{
+  width:100%;height:100%;object-fit:cover;
+  transition: transform .8s ease;
+}
+.strip-item:hover img{transform: scale(1.08)}
+.strip-item::after{
+  content:"";
+  position:absolute; inset:0;
+  background: linear-gradient(180deg, rgba(0,0,0,.1) 0%, rgba(0,0,0,.7) 100%);
+  pointer-events:none;
+}
+.strip-label{
+  position: absolute;
+  bottom: 22px; left: 24px; right: 24px;
+  color: var(--bone);
+  z-index: 1;
+  display:flex;align-items:end;justify-content:space-between;gap:16px;
+}
+.strip-label h4{
+  font-family: var(--font-headline);
+  font-size: 28px;
+  letter-spacing: .04em;
+  line-height: 1;
+}
+.strip-label .pill{
+  background: var(--bolt);
+  color: var(--ink);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  padding: 8px 14px;
+  border-radius: 999px;
+  letter-spacing: .1em;
+  display:inline-flex;align-items:center;gap:8px;
+  transition: transform .25s;
+}
+.strip-item:hover .strip-label .pill{transform: translateY(-3px) scale(1.05)}
+.strip-label .pill svg{width:13px;height:13px}
+
+/* ============================================================
+   BRANDS
+   ============================================================ */
+.brands{ padding: 100px 0; background: var(--paper); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line)}
+.brand-cards{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:24px;
+}
+@media (max-width: 880px){ .brand-cards{grid-template-columns:1fr} }
+.brand-card{
+  background: var(--bone);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 32px 28px;
+  display:flex;flex-direction:column;justify-content:space-between;
+  min-height: 280px;
+  position: relative;
+  overflow: hidden;
+  transition: all .35s;
+}
+.brand-card:hover{
+  background: var(--ink);
+  color: var(--bone);
+  transform: translateY(-6px);
+  border-color: var(--ink);
+}
+.brand-card .top{display:flex;justify-content:space-between;align-items:start}
+.brand-card .logo-text{
+  font-family: var(--font-display);
+  font-size: 38px;
+  letter-spacing: -.02em;
+  line-height: 1;
+}
+.brand-card .badge{
+  background: var(--bolt);
+  color: var(--ink);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: .18em;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-weight: 700;
+}
+.brand-card p{
+  font-size: 14px;
+  margin: 20px 0;
+  opacity: .85;
+}
+.brand-card .more{
+  display:inline-flex;align-items:center;gap:8px;
+  font-weight: 700;
+  font-size: 13px;
+  border-bottom: 2px solid var(--bolt);
+  padding-bottom: 3px;
+  align-self:flex-start;
+}
+.brand-card .more svg{width:14px;height:14px}
+
+/* ============================================================
+   DISTRICTS / AREA
+   ============================================================ */
+.area{
+  background: var(--ink);
+  color: var(--bone);
+  padding: 110px 0;
+  position: relative;
+  overflow: hidden;
+}
+.area::before{
+  content:""; position:absolute;
+  top:-200px; right:-200px;
+  width:600px;height:600px;
+  background: radial-gradient(circle, var(--bolt) 0%, transparent 60%);
+  opacity: .15;
+  pointer-events:none;
+}
+.area .section-eyebrow{color: rgba(255,255,255,.6)}
+.area .section-eyebrow::before{background:var(--bolt)}
+.area .section-lead{color: rgba(255,255,255,.7)}
+
+.districts{
+  display:grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 14px;
+  margin-top: 50px;
+}
+.district{
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 12px;
+  padding: 22px 20px;
+  transition: all .3s;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+.district:hover{
+  background: var(--bolt);
+  color: var(--ink);
+  border-color: var(--bolt);
+  transform: translateY(-3px);
+}
+.district h4{
+  font-family: var(--font-headline);
+  font-size: 22px;
+  letter-spacing: .03em;
+  margin-bottom: 4px;
+}
+.district small{
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: .15em;
+  opacity: .7;
+  text-transform: uppercase;
+}
+.district .arrow{
+  position:absolute; right: 16px; top: 50%;
+  transform: translateY(-50%) translateX(-8px);
+  opacity:0; transition: all .3s;
+}
+.district:hover .arrow{opacity:1;transform: translateY(-50%) translateX(0)}
+.district .arrow svg{width:18px;height:18px}
+
+/* ============================================================
+   PROCESS
+   ============================================================ */
+.process{ background: var(--bone); padding: 110px 0}
+.steps{
+  display:grid;grid-template-columns: repeat(4,1fr);
+  gap: 24px;
+  position: relative;
+}
+.steps::before{
+  content:"";
+  position:absolute; top:38px; left:8%; right:8%;
+  height: 2px;
+  background: repeating-linear-gradient(90deg, var(--ink) 0, var(--ink) 6px, transparent 6px, transparent 12px);
+  z-index: 0;
+}
+@media (max-width: 880px){
+  .steps{grid-template-columns:1fr;gap:30px}
+  .steps::before{display:none}
+}
+
+.step{
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+.step-num{
+  width: 76px;height:76px;
+  background: var(--paper);
+  border: 2px solid var(--ink);
+  border-radius: 50%;
+  display:grid;place-items:center;
+  margin: 0 auto 20px;
+  font-family: var(--font-display);
+  font-size: 32px;
+  color: var(--ink);
+  position: relative;
+  transition: all .3s;
+}
+.step:hover .step-num{
+  background: var(--bolt);
+  transform: scale(1.1);
+}
+.step-num::after{
+  content:"";
+  position:absolute; inset:-8px;
+  border: 2px dashed var(--ink);
+  border-radius: 50%;
+  opacity: 0;
+  animation: spin 10s linear infinite;
+  transition: opacity .3s;
+}
+.step:hover .step-num::after{opacity:.4}
+@keyframes spin{ from{transform:rotate(0)} to{transform:rotate(360deg)} }
+
+.step h3{
+  font-family: var(--font-headline);
+  font-size: 22px;
+  letter-spacing: .04em;
+  margin-bottom: 8px;
+}
+.step p{
+  font-size: 14px;
+  color: var(--ink-3);
+  max-width: 240px;
+  margin: 0 auto;
+}
+
+/* ============================================================
+   REVIEWS
+   ============================================================ */
+.reviews{
+  background: var(--paper);
+  padding: 110px 0;
+  border-top: 1px solid var(--line);
+}
+.reviews-grid{
+  display:grid;grid-template-columns: repeat(3,1fr);
+  gap: 24px;
+}
+@media (max-width: 880px){ .reviews-grid{grid-template-columns:1fr} }
+
+.review{
+  background: var(--bone);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 30px 28px;
+  position: relative;
+  transition: transform .3s, box-shadow .3s;
+}
+.review:hover{transform: translateY(-6px); box-shadow: var(--shadow-lg)}
+.review .stars{
+  display:flex;gap:2px;margin-bottom: 16px;
+  color: var(--bolt-2);
+}
+.review .stars svg{width:18px;height:18px;fill:currentColor}
+.review blockquote{
+  font-size: 15px;
+  color: var(--ink-2);
+  line-height: 1.65;
+  margin-bottom: 24px;
+  position: relative;
+}
+.review blockquote::before{
+  content:"\201C";
+  position:absolute;
+  left: -8px; top: -28px;
+  font-family: var(--font-display);
+  font-size: 70px;
+  color: var(--bolt);
+  line-height: 1;
+}
+.review .author{
+  display:flex;align-items:center;gap:14px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+}
+.review .author .avatar{
+  width: 44px;height:44px;
+  background: var(--ink);
+  color: var(--bone);
+  border-radius: 50%;
+  display:grid;place-items:center;
+  font-family: var(--font-headline);
+  font-size: 18px;
+  letter-spacing: .03em;
+}
+.review .author strong{display:block;font-size:14px;font-weight:700;color:var(--ink)}
+.review .author small{font-size:11px;color:var(--mute);text-transform:uppercase;letter-spacing:.1em;font-family:var(--font-mono)}
+
+/* ============================================================
+   FAQ
+   ============================================================ */
+.faq{ padding: 110px 0; background: var(--bone)}
+.faq-list{
+  max-width: 920px; margin: 0 auto;
+  display:flex;flex-direction:column;gap:14px;
+}
+.faq-item{
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: border-color .25s;
+}
+.faq-item:hover{border-color: var(--ink-3)}
+.faq-item[open]{border-color: var(--ink); box-shadow: var(--shadow-lg)}
+.faq-item summary{
+  list-style: none;
+  cursor: pointer;
+  padding: 22px 28px;
+  display:flex;align-items:center;justify-content:space-between;gap:20px;
+  font-family: var(--font-headline);
+  font-size: 19px;
+  letter-spacing: .02em;
+  color: var(--ink);
+}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item .toggle{
+  width: 36px;height:36px;
+  background: var(--bone);
+  border-radius: 50%;
+  display:grid;place-items:center;
+  flex-shrink:0;
+  transition: all .3s;
+}
+.faq-item[open] .toggle{
+  background: var(--bolt);
+  transform: rotate(180deg);
+}
+.faq-item .toggle svg{width:16px;height:16px;color:var(--ink)}
+.faq-item .answer{
+  padding: 0 28px 28px;
+  color: var(--ink-3);
+  font-size: 15px;
+  line-height: 1.7;
+}
+.faq-item .answer strong{color:var(--ink)}
+
+/* ============================================================
+   FINAL CTA
+   ============================================================ */
+.final-cta{
+  background: var(--ink);
+  color: var(--bone);
+  padding: 100px 0;
+  position: relative;
+  overflow: hidden;
+}
+.final-cta::before{
+  content:"";
+  position:absolute; inset:0;
+  background:
+    radial-gradient(800px 400px at 100% 0%, rgba(255,214,10,.4), transparent 50%),
+    radial-gradient(600px 300px at 0% 100%, rgba(255,214,10,.2), transparent 50%);
+}
+.final-cta-inner{
+  position: relative; z-index: 1;
+  display:grid;grid-template-columns: 1fr auto;
+  align-items:center;gap: 40px;
+}
+@media (max-width: 880px){ .final-cta-inner{grid-template-columns:1fr;text-align:center} }
+.final-cta h2{
+  font-family: var(--font-display);
+  font-size: clamp(38px, 5vw, 72px);
+  line-height: .95;
+  letter-spacing: -.02em;
+  text-transform: uppercase;
+}
+.final-cta h2 em{
+  font-style: normal;
+  color: var(--bolt);
+}
+.final-cta p{
+  font-size: 17px;
+  opacity: .8;
+  margin-top: 18px;
+  max-width: 560px;
+}
+.final-cta .big-num{
+  font-family: var(--font-display);
+  font-size: clamp(34px, 4vw, 52px);
+  color: var(--bolt);
+  letter-spacing: -.01em;
+  display:block;
+  margin-bottom: 16px;
+}
+.final-cta-btns{display:flex;flex-direction:column;gap:14px;flex-shrink:0}
+@media (max-width: 880px){ .final-cta-btns{align-items:center;width:100%}.final-cta-btns .btn{justify-content:center} }
+.btn-call{
+  background: var(--bolt);
+  color: var(--ink);
+  border: 2px solid var(--bolt);
+  font-family: var(--font-display);
+  font-size: 18px;
+  letter-spacing: .03em;
+  padding: 22px 32px;
+}
+.btn-call:hover{
+  transform: translateY(-3px);
+  background: var(--paper);
+  border-color: var(--paper);
+  box-shadow: var(--shadow-yellow);
+}
+.btn-wa{
+  background: transparent;
+  color: var(--bone);
+  border: 2px solid rgba(255,255,255,.3);
+  padding: 18px 30px;
+}
+.btn-wa:hover{
+  background: rgba(255,255,255,.1);
+  border-color: var(--bone);
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+footer{
+  background: var(--ink-2);
+  color: var(--bone);
+  padding: 70px 0 30px;
+  border-top: 1px solid rgba(255,255,255,.06);
+}
+.footer-grid{
+  display:grid;grid-template-columns: 1.4fr 1fr 1fr 1fr;
+  gap: 50px;
+  margin-bottom: 50px;
+}
+@media (max-width: 880px){ .footer-grid{grid-template-columns: 1fr 1fr; gap: 40px 30px}.footer-col:first-child{grid-column: 1/-1} }
+@media (max-width: 520px){ .footer-grid{grid-template-columns: 1fr} }
+
+.footer-col h5{
+  font-family: var(--font-headline);
+  font-size: 16px;
+  letter-spacing: .12em;
+  margin-bottom: 20px;
+  color: var(--bolt);
+  text-transform: uppercase;
+}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.footer-col a{
+  font-size: 14px;
+  opacity: .75;
+  transition: opacity .2s, color .2s;
+}
+.footer-col a:hover{opacity:1;color:var(--bolt)}
+.footer-brand p{
+  font-size: 14px;
+  opacity: .7;
+  line-height: 1.7;
+  margin-top: 18px;
+}
+.footer-brand img{height: 56px; margin-bottom: 16px;}
+.footer-bottom{
+  padding-top: 30px;
+  border-top: 1px solid rgba(255,255,255,.08);
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;
+  font-size: 12px;
+  opacity: .55;
+  font-family: var(--font-mono);
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+/* ============================================================
+   FLOATING ELEMENTS - WhatsApp & Call
+   ============================================================ */
+.float-actions{
+  position: fixed;
+  right: 20px; bottom: 20px;
+  z-index: 80;
+  display:flex;flex-direction:column;gap:12px;
+}
+@media (max-width: 880px){ .float-actions{bottom: 90px} }
+.float-btn{
+  width: 60px;height:60px;
+  border-radius: 50%;
+  display:grid;place-items:center;
+  box-shadow: 0 12px 24px -8px rgba(0,0,0,.4);
+  transition: transform .25s;
+  position: relative;
+}
+.float-btn:hover{transform: scale(1.1)}
+.float-btn svg{width: 26px; height:26px; color:white}
+.float-btn.wa{background:#25d366}
+.float-btn.call{background: #1877f2}
+.float-btn.call svg{color: #ffffff}
+.float-btn::before{
+  content:"";
+  position:absolute; inset: -4px;
+  border-radius: 50%;
+  border: 2px solid currentColor;
+  opacity: .5;
+  animation: ringExpand 2s infinite;
+}
+.float-btn.wa::before{color:#25d366}
+.float-btn.call::before{color:#1877f2}
+@keyframes ringExpand{
+  0%{transform:scale(1);opacity:.5}
+  100%{transform:scale(1.6);opacity:0}
+}
+
+/* ============================================================
+   MOBILE STICKY BAR
+   ============================================================ */
+.mobile-bar{
+  display: none;
+  position: fixed; bottom: 0; left:0; right:0;
+  background: var(--ink);
+  z-index: 85;
+  padding: 10px;
+  gap: 8px;
+  box-shadow: 0 -10px 30px rgba(0,0,0,.3);
+}
+.mobile-bar a{
+  flex: 1;
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  padding: 14px;
+  border-radius: 12px;
+  font-weight: 800;
+  font-size: 14px;
+}
+.mobile-bar .mb-call{background: #1877f2; color: #ffffff}
+.mobile-bar .mb-wa{background:#25d366; color: white}
+.mobile-bar a svg{width:18px;height:18px}
+@media (max-width: 880px){
+  .mobile-bar{display: flex}
+  body{padding-bottom: 80px}
+  .float-actions{display: none}
+}
+
+/* ============================================================
+   AVAILABILITY POPUP NOTIFICATION
+   ============================================================ */
+.availability-pop{
+  position: fixed;
+  left: 20px;
+  bottom: 20px;
+  z-index: 75;
+  background: var(--paper);
+  border-radius: 18px;
+  padding: 16px 18px;
+  box-shadow: 0 25px 50px -15px rgba(0,0,0,.4);
+  display: flex; align-items: center; gap: 14px;
+  max-width: 360px;
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--ok);
+  transform: translateY(150%);
+  opacity: 0;
+  transition: transform .5s cubic-bezier(.34,1.56,.64,1), opacity .4s;
+}
+.availability-pop.show{ transform: translateY(0); opacity: 1 }
+.availability-pop .avatar{
+  width: 50px; height:50px;
+  background: var(--ink);
+  border-radius: 50%;
+  display:grid;place-items:center;
+  flex-shrink:0;
+  position: relative;
+}
+.availability-pop .avatar svg{width:24px;height:24px;color:var(--bolt)}
+.availability-pop .avatar::after{
+  content:""; position:absolute;
+  bottom:2px;right:2px;
+  width:14px;height:14px;
+  background: var(--ok);
+  border:2px solid var(--paper);
+  border-radius:50%;
+  animation: pulse 1.4s infinite;
+}
+.availability-pop .text{flex:1;min-width:0}
+.availability-pop .text strong{
+  display:block;
+  font-size: 14px;
+  color: var(--ink);
+  margin-bottom: 4px;
+  font-weight:800;
+}
+.availability-pop .text p{
+  font-size: 12.5px;
+  color: var(--ink-3);
+  line-height: 1.4;
+}
+.availability-pop .text p a{
+  color: var(--ink);
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-color: var(--bolt);
+  text-underline-offset: 3px;
+}
+.availability-pop .close{
+  position:absolute;
+  top: 6px; right: 8px;
+  width:22px;height:22px;
+  display:grid;place-items:center;
+  color: var(--mute);
+  font-size:18px;
+  border-radius: 50%;
+}
+.availability-pop .close:hover{background:var(--bone); color:var(--ink)}
+@media (max-width: 880px){
+  .availability-pop{left: 12px; right: 12px; max-width: none; bottom: 88px}
+}
+
+/* ============================================================
+   PHONE MODAL (when image clicked)
+   ============================================================ */
+.modal{
+  position: fixed; inset:0;
+  background: rgba(0,0,0,.7);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 100;
+  display:none; align-items:center; justify-content:center;
+  padding: 20px;
+  opacity:0;
+  transition: opacity .25s;
+}
+.modal.active{display:flex; opacity:1}
+.modal-box{
+  background: var(--paper);
+  border-radius: 24px;
+  padding: 40px 36px;
+  max-width: 420px;
+  width:100%;
+  text-align: center;
+  position: relative;
+  transform: scale(.9);
+  transition: transform .3s cubic-bezier(.34,1.56,.64,1);
+}
+.modal.active .modal-box{transform: scale(1)}
+.modal-close{
+  position:absolute;top:14px;right:16px;
+  width:34px;height:34px;
+  border-radius: 50%;
+  background: var(--bone);
+  display:grid;place-items:center;
+  font-size: 22px;
+  color: var(--ink-2);
+}
+.modal-close:hover{background: var(--ink); color: var(--bone)}
+.modal-icon{
+  width: 76px;height:76px;
+  background: var(--bolt);
+  border-radius: 50%;
+  display:grid;place-items:center;
+  margin: 0 auto 22px;
+  animation: pulse 1.5s infinite;
+}
+.modal-icon svg{width:36px;height:36px;color:var(--ink)}
+.modal h3{
+  font-family: var(--font-display);
+  font-size: 28px;
+  letter-spacing: .01em;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+.modal p{font-size: 14px; color: var(--mute); margin-bottom: 26px}
+.modal .phone-display{
+  font-family: var(--font-display);
+  font-size: 32px;
+  letter-spacing: .02em;
+  color: var(--ink);
+  margin-bottom: 24px;
+  display:block;
+  padding: 12px;
+  background: var(--bone);
+  border-radius: 12px;
+  border: 2px dashed var(--ink);
+}
+.modal .btn{width:100%; justify-content:center}
+
+/* Reveal on scroll utility */
+.reveal{
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity .8s, transform .8s;
+}
+.reveal.in{opacity:1; transform: translateY(0)}
+
+.reveal-stagger > *{
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity .7s, transform .7s;
+}
+.reveal-stagger.in > *{
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-stagger.in > *:nth-child(1){transition-delay: .05s}
+.reveal-stagger.in > *:nth-child(2){transition-delay: .15s}
+.reveal-stagger.in > *:nth-child(3){transition-delay: .25s}
+.reveal-stagger.in > *:nth-child(4){transition-delay: .35s}
+.reveal-stagger.in > *:nth-child(5){transition-delay: .45s}
+.reveal-stagger.in > *:nth-child(6){transition-delay: .55s}
+.reveal-stagger.in > *:nth-child(7){transition-delay: .65s}
+.reveal-stagger.in > *:nth-child(8){transition-delay: .75s}
+
+@media (prefers-reduced-motion: reduce){
+  *{animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important}
+}
+</style>
 </head>
 <body>
-    <!-- HEADER -->
-    <header class="header" id="mainHeader">
-        <a href="#" class="logo" id="homeLink" aria-label="Web4 Medya - Ana Sayfa">
-            <img src="/images/web4medya-logo.png" alt="Web4 Medya Logo" onerror="this.onerror=null; this.src='https://via.placeholder.com/200x70/transparent/0A2463?text=Web4+Medya';">
+
+<!-- ========= ANNOUNCEMENT MARQUEE ========= -->
+<div class="announce" aria-hidden="true">
+  <div class="announce-track">
+    <span><span class="dot"></span> 7/24 Gaziantep Akü Servisi</span>
+    <span>15 dakikada yerinizdeyiz</span>
+    <span><span class="dot"></span> Mobil Akü Yol Yardım</span>
+    <span>İnci • Mutlu • Varta</span>
+    <span><span class="dot"></span> Ücretsiz Akü Testi</span>
+    <span>Şahinbey • Şehitkamil • Tüm İlçeler</span>
+    <span><span class="dot"></span> 0544 282 27 97</span>
+    <!-- duplicated for seamless marquee -->
+    <span><span class="dot"></span> 7/24 Gaziantep Akü Servisi</span>
+    <span>15 dakikada yerinizdeyiz</span>
+    <span><span class="dot"></span> Mobil Akü Yol Yardım</span>
+    <span>İnci • Mutlu • Varta</span>
+    <span><span class="dot"></span> Ücretsiz Akü Testi</span>
+    <span>Şahinbey • Şehitkamil • Tüm İlçeler</span>
+    <span><span class="dot"></span> 0544 282 27 97</span>
+  </div>
+</div>
+
+<!-- ========= NAV ========= -->
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a href="/" class="brand" aria-label="Gaziantep Akü Servisi Anasayfa">
+      <img src="/images/gaziantep-aku-servisim-logo.png" alt="Gaziantep Akü Servisi Logo" />
+      <div class="brand-text">
+        <strong>Gaziantep Akü Servisi</strong>
+        <small>7/24 Mobil • Yol Yardım</small>
+      </div>
+    </a>
+    <nav class="nav-links" aria-label="Ana menü">
+      <a href="#hizmetler">Hizmetler</a>
+      <a href="/gaziantep-inci-aku">İnci Akü</a>
+      <a href="/gaziantep-mutlu-aku">Mutlu Akü</a>
+      <a href="/gaziantep-varta-aku">Varta Akü</a>
+      <a href="#bolgeler">Bölgeler</a>
+      <a href="#sss">SSS</a>
+    </nav>
+    <a href="tel:+905442822797" class="nav-cta">
+      <span class="ring" aria-hidden="true"></span>
+      <span>0544 282 27 97</span>
+    </a>
+  </div>
+</header>
+
+<!-- ========= HERO ========= -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-content">
+      <span class="hero-eyebrow">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L4.09 12.97L11 14L11 22L19.91 11.03L13 10L13 2z"/></svg>
+        Gaziantep'in en hızlı akü servisi
+      </span>
+      <!-- ANA SEO H1 -->
+      <h1>
+        <span class="highlight">Gaziantep</span>
+        <span class="bolt">⚡</span> Akü<br/>
+        Servisi · 7/24<br/>
+        Yerinizdeyiz
+      </h1>
+      <p class="hero-sub">
+        Yolda kalmayın. <strong>Mobil akü ekibimiz</strong> Şahinbey, Şehitkamil ve Gaziantep'in tüm ilçelerinde
+        <strong>15 dakikada yerinize geliyor</strong>. İnci, Mutlu, Varta akü çeşitlerini uygun fiyatla
+        evinizde, iş yerinizde veya yolda değiştiriyoruz.
+      </p>
+      <div class="hero-cta-row">
+        <a href="tel:+905442822797" class="btn btn-primary">
+          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.33 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <span>Hemen Ara · <span class="num">0544 282 27 97</span></span>
         </a>
-        
-        <!-- NAVIGATION -->
-        <nav class="nav-desktop">
-            <div class="nav-item">
-                <a href="/" class="nav-link active">Ana Sayfa</a>
-            </div>
-            
-            <!-- HİZMETLER DROPDOWN -->
-            <div class="nav-item">
-                <a href="#" class="nav-link">Hizmetler <i class="fas fa-chevron-down arrow"></i></a>
-                <div class="dropdown" id="hizmetlerDropdown">
-                    <div class="dropdown-content">
-                        <!-- Dijital Pazarlama -->
-                        <div class="dropdown-section">
-                            <h4>Dijital Pazarlama</h4>
-                            <a href="/google-ads-reklam-ver/" class="dropdown-link">Google Ads Reklam Ver</a>
-                            <a href="/instagram-reklam-ver/" class="dropdown-link">İnstagram Reklam Ver</a>
-                            <a href="/facebook-reklam-ver/" class="dropdown-link">Facebook Reklam Ver</a>
-                            <a href="/google-harita-maps-kaydi/" class="dropdown-link">Google Harita(Maps) Kaydı</a>
-                            <a href="/seo/" class="dropdown-link">SEO (Arama Motoru Optimizasyonu)</a>
-                            <a href="/sosyal-medya-yonetimi/" class="dropdown-link">Sosyal Medya Yönetimi</a>
-                        </div>
-                        
-                        <!-- Web Tasarım -->
-                        <div class="dropdown-section">
-                            <h4>Web Tasarım</h4>
-                            <a href="/e-ticaret-sitesi/" class="dropdown-link">E-Ticaret Sitesi</a>
-                            <a href="/kurumsal-web-sitesi/" class="dropdown-link">Kurumsal Web Sitesi</a>
-                        </div>
-                        
-                        <!-- Prodüksiyon -->
-                        <div class="dropdown-section">
-                            <h4>Prodüksiyon</h4>
-                            <a href="/sosyal-medya-videolari/" class="dropdown-link">Sosyal Medya Videoları</a>
-                            <a href="/tanitim-filmi/" class="dropdown-link">Tanıtım Filmi</a>
-                            <a href="/drone-cekimi/" class="dropdown-link">Drone Çekimi</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- BLOG -->
-            <div class="nav-item">
-                <a href="/blog/" class="nav-link">Blog</a>
-            </div>
-            
-            <!-- HAKKIMIZDA -->
-            <div class="nav-item">
-                <a href="/hakkimizda/" class="nav-link">Hakkımızda</a>
-            </div>
-            
-            <!-- İLETİŞİM -->
-            <div class="nav-item">
-                <a href="/iletisim/" class="nav-link">İletişim</a>
-            </div>
-            
-            <!-- HEADER CTA BUTTON -->
-            <div class="header-cta">
-                <a href="tel:05422360983" class="btn btn-yellow light-effect">
-                    <i class="fas fa-phone-alt"></i> 0542 236 09 83
-                </a>
-            </div>
-        </nav>
-        
-        <!-- Hamburger Menu -->
-        <button class="menu-toggle" id="menuToggle" aria-label="Menüyü aç/kapat">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-    </header>
-    
-    <!-- Mobile Menu -->
-    <div class="mobile-menu" id="mobileMenu">
-        <nav class="mobile-nav">
-            <div class="mobile-nav-item">
-                <a href="#" class="mobile-nav-link active" id="mobileHomeLink">Ana Sayfa</a>
-            </div>
-            
-            <div class="mobile-nav-item">
-                <button class="mobile-dropdown-btn" data-target="hizmetlerMobile">
-                    Hizmetler <i class="fas fa-chevron-down mobile-arrow"></i>
-                </button>
-                <div class="mobile-dropdown-content" id="hizmetlerMobile">
-                    <div class="mobile-dropdown-section">
-                        <h4>Dijital Pazarlama</h4>
-                        <a href="/google-ads-reklam-ver/" class="mobile-dropdown-link">Google Ads Reklam Ver</a>
-                        <a href="/instagram-reklam-ver/" class="mobile-dropdown-link">İnstagram Reklam Ver</a>
-                        <a href="/facebook-reklam-ver/" class="mobile-dropdown-link">Facebook Reklam Ver</a>
-                        <a href="/google-harita-maps-kaydi/" class="mobile-dropdown-link">Google Harita(Maps) Kaydı</a>
-                        <a href="/seo/" class="mobile-dropdown-link">SEO (Arama Motoru Optimizasyonu)</a>
-                        <a href="/sosyal-medya-yonetimi/" class="mobile-dropdown-link">Sosyal Medya Yönetimi</a>
-                    </div>
-                    
-                    <div class="mobile-dropdown-section">
-                        <h4>Web Tasarım</h4>
-                        <a href="/e-ticaret-sitesi/" class="mobile-dropdown-link">E-Ticaret Sitesi</a>
-                        <a href="/kurumsal-web-sitesi/" class="mobile-dropdown-link">Kurumsal Web Sitesi</a>
-                    </div>
-                    
-                    <div class="mobile-dropdown-section">
-                        <h4>Prodüksiyon</h4>
-                        <a href="/sosyal-medya-videolari/" class="mobile-dropdown-link">Sosyal Medya Videoları</a>
-                        <a href="/tanitim-filmi/" class="mobile-dropdown-link">Tanıtım Filmi</a>
-                        <a href="/drone-cekimi/" class="mobile-dropdown-link">Drone Çekimi</a>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="mobile-nav-item">
-                <a href="/blog/" class="mobile-nav-link">Blog</a>
-            </div>
-            
-            <div class="mobile-nav-item">
-                <a href="/hakkimizda/" class="mobile-nav-link">Hakkımızda</a>
-            </div>
-            
-            <div class="mobile-nav-item">
-                <a href="/iletisim/" class="mobile-nav-link">İletişim</a>
-            </div>
-            
-            <div class="mobile-nav-item">
-                <a href="tel:05422360983" class="mobile-nav-link mobile-cta-btn light-effect">
-                    <i class="fas fa-phone-alt"></i> 0542 236 09 83
-                </a>
-            </div>
-        </nav>
+        <a href="https://wa.me/905442822797?text=Merhaba%2C+Gaziantep%27te+ak%C3%BC+servisine+ihtiyac%C4%B1m+var." class="btn btn-secondary" target="_blank" rel="noopener">
+          <svg class="ico" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413"/></svg>
+          <span>WhatsApp ile Yaz</span>
+        </a>
+      </div>
+
+      <div class="hero-meta">
+        <div class="hero-meta-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>
+          <span>15 dk yerinizdeyiz</span>
+        </div>
+        <div class="hero-meta-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>
+          <span>Garantili orijinal akü</span>
+        </div>
+        <div class="hero-meta-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>
+          <span>Ücretsiz akü testi</span>
+        </div>
+      </div>
     </div>
 
-    <!-- Hero Section -->
-    <section class="hero" id="hero">
-        <div class="hero-content">
-            <h1>Dijitalde Fark Yaratın</h1>
-            <p>Web Tasarım, SEO, Google & Meta Ads Reklamları ve profesyonel prodüksiyon çözümlerimizle markanızı dijital dünyada öne çıkarıyoruz.</p>
-             <div class="hero-buttons">
-                <a href="tel:05422360983" class="btn btn-primary light-effect">
-                    <i class="fas fa-phone-alt"></i> 0542 236 09 83
-                </a>
-                <a href="https://wa.me/905422360983" class="btn btn-whatsapp light-effect">
-                    <i class="fab fa-whatsapp"></i> WhatsApp'tan Yaz
-                </a>
-            </div>
+    <div class="hero-visual">
+      <div class="hero-visual-frame">
+        <span class="hero-visual-badge">Şu an aktif</span>
+        <img src="/images/gaziantep-aku-servis.webp" alt="Gaziantep Akü Servisi - Mobil Akü Hizmeti" loading="eager" fetchpriority="high" />
+        <div class="hero-visual-caption">
+          <h4>Mobil Akü Ekibi</h4>
+          <p>Aracınız çekilmesin — biz size geliyoruz.</p>
         </div>
-    </section>
+      </div>
+      <div class="float-card float-card-1">
+        <div class="ico-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <div>
+          <strong>15 DK</strong>
+          <span>Ortalama Süre</span>
+        </div>
+      </div>
+      <div class="float-card float-card-2">
+        <div class="ico-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        </div>
+        <div>
+          <strong>9</strong>
+          <span>İlçede Hizmet</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- Hizmetlerimiz -->
-    <section class="services-section">
-        <div class="section-header">
-            <h2 class="section-title">Hizmetlerimiz</h2>
-            <p class="section-subtitle">İşletmeniz için kapsamlı dijital çözümler sunuyoruz. Kartlara tıklayarak detayları görün.</p>
-        </div>
-        
-        <div class="services-container">
-            <div class="service-category">
-                <h2 class="category-title">Dijital Pazarlama Hizmetlerimiz</h2>
-                <div class="category-grid">
-                    <div class="flip-card" data-id="google-ads">
-                        <div class="card-face card-front">
-                            <div class="icon icon-google">
-                                <i class="fab fa-google"></i>
-                            </div>
-                            <h3>Google Ads Reklam Ver</h3>
-                        </div>
-                        <div class="card-face card-back">
-                            <h3>Google Ads</h3>
-                            <p>Arama ve Display ağlarında reklamlarınızı profesyonel şekilde yönetiyor, hedef kitlenize ulaşmanızı sağlıyoruz.</p>
-                            <a href="/google-ads-reklam-ver/" class="btn">Paketleri İncele</a>
-                        </div>
-                    </div>
-                    
-                    <div class="flip-card" data-id="instagram-ads">
-                        <div class="card-face card-front">
-                            <div class="icon icon-instagram">
-                                <i class="fab fa-instagram"></i>
-                            </div>
-                            <h3>İnstagram Reklam Ver</h3>
-                        </div>
-                        <div class="card-face card-back">
-                            <h3>Instagram Reklam</h3>
-                            <p>Instagram'da görsel ve video reklamlarla genç ve aktif kitleye ulaşmanızı sağlıyor, etkileşimlerinizi artırıyoruz.</p>
-                            <a href="/instagram-reklam-ver/" class="btn">Paketleri İncele</a>
-                        </div>
-                    </div>
-                    
-                    <div class="flip-card" data-id="facebook-ads">
-                        <div class="card-face card-front">
-                            <div class="icon icon-facebook">
-                                <i class="fab fa-facebook"></i>
-                            </div>
-                            <h3>Facebook Reklam Ver</h3>
-                        </div>
-                        <div class="card-face card-back">
-                            <h3>Facebook Reklam</h3>
-                            <p>Facebook'ta detaylı hedefleme ile doğru kitleye reklamlarınızı ulaştırıyor, dönüşüm oranlarınızı yükseltiyoruz.</p>
-                            <a href="/facebook-reklam-ver/" class="btn">Paketleri İncele</a>
-                        </div>
-                    </div>
-                    
-                    <div class="flip-card" data-id="google-maps">
-                        <div class="card-face card-front">
-                            <div class="icon icon-maps">
-                                <i class="fas fa-map-marker-alt"></i>
-                            </div>
-                            <h3>Google Harita Kaydı</h3>
-                        </div>
-                        <div class="card-face card-back">
-                            <h3>Google Harita</h3>
-                            <p>İşletmenizi Google Haritalar'da kaydediyor, müşterilerinizin sizi kolayca bulmasını ve yön bulmasını sağlıyoruz.</p>
-                            <a href="/google-harita-maps-kaydi/" class="btn">Paketleri İncele</a>
-                        </div>
-                    </div>
-                    
-                    <div class="flip-card" data-id="seo">
-                        <div class="card-face card-front">
-                            <div class="icon icon-seo">
-                                <i class="fas fa-chart-line"></i>
-                            </div>
-                            <h3>SEO Hizmeti</h3>
-                        </div>
-                        <div class="card-face card-back">
-                            <h3>SEO Optimizasyon</h3>
-                            <p>Web sitenizi arama motorları için optimize ediyor, organik trafik artışı sağlıyor ve sürekli takip ediyoruz.</p>
-                            <a href="/seo/" class="btn">Paketleri İncele</a>
-                        </div>
-                    </div>
-                    
-                    <div class="flip-card" data-id="social-media">
-                        <div class="card-face card-front">
-                            <div class="icon icon-social">
-                                <i class="fas fa-users"></i>
-                            </div>
-                            <h3>Sosyal Medya Yönetimi</h3>
-                        </div>
-                        <div class="card-face card-back">
-                            <h3>Sosyal Medya</h3>
-                            <p>Sosyal medya hesaplarınızı profesyonelce yönetiyor, içerik üretiyor ve takipçi etkileşiminizi artırıyoruz.</p>
-                            <a href="/sosyal-medya-yonetimi/" class="btn">Paketleri İncele</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="service-category">
-                <h2 class="category-title">Web Tasarım Hizmetlerimiz</h2>
-                <div class="category-grid">
-                    <div class="flip-card" data-id="ecommerce">
-                        <div class="card-face card-front">
-                            <div class="icon icon-ecommerce">
-                                <i class="fas fa-shopping-cart"></i>
-                            </div>
-                            <h3>E-Ticaret Sitesi</h3>
-                        </div>
-                        <div class="card-face card-back">
-                            <h3>E-Ticaret</h3>
-                            <p>Mobil uyumlu, güvenli ve kullanıcı dostu e-ticaret siteleri tasarlıyor, online satışlarınızı artırıyoruz.</p>
-                            <a href="/e-ticaret-sitesi/" class="btn">Paketleri İncele</a>
-                        </div>
-                    </div>
-                    
-                    <div class="flip-card" data-id="corporate-web">
-                        <div class="card-face card-front">
-                            <div class="icon icon-corporate">
-                                <i class="fas fa-briefcase"></i>
-                            </div>
-                            <h3>Kurumsal Web Sitesi</h3>
-                        </div>
-                        <div class="card-face card-back">
-                            <h3>Kurumsal Web</h3>
-                            <p>Kurumsal kimliğinize uygun, modern ve etkileyici web siteleri tasarlıyor, online varlığınızı güçlendiriyoruz.</p>
-                            <a href="/kurumsal-web-sitesi/" class="btn">Paketleri İncele</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="service-category">
-                <h2 class="category-title">Prodüksiyon Hizmetlerimiz</h2>
-                <div class="category-grid">
-                    <div class="flip-card" data-id="social-videos">
-                        <div class="card-face card-front">
-                            <div class="icon icon-video">
-                                <i class="fas fa-video"></i>
-                            </div>
-                            <h3>Sosyal Medya Videoları</h3>
-                        </div>
-                        <div class="card-face card-back">
-                            <h3>Sosyal Medya Videoları</h3>
-                            <p>Sosyal medya platformları için etkileyici ve paylaşılabilir video içerikler üretiyor, marka bilinirliğinizi artırıyoruz.</p>
-                            <a href="/sosyal-medya-videolari/" class="btn">Paketleri İncele</a>
-                        </div>
-                    </div>
-                    
-                    <div class="flip-card" data-id="promo-video">
-                        <div class="card-face card-front">
-                            <div class="icon icon-film">
-                                <i class="fas fa-film"></i>
-                            </div>
-                            <h3>Tanıtım Filmi</h3>
-                        </div>
-                        <div class="card-face card-back">
-                            <h3>Tanıtım Filmi</h3>
-                            <p>Markanızı en iyi şekilde tanıtan profesyonel tanıtım filmleri hazırlıyor, kurumsal kimliğinizi güçlendiriyoruz.</p>
-                            <a href="/tanitim-filmi/" class="btn">Paketleri İncele</a>
-                        </div>
-                    </div>
-                    
-                    <div class="flip-card" data-id="drone">
-                        <div class="card-face card-front">
-                            <div class="icon icon-drone">
-                                <i class="fas fa-drone"></i>
-                            </div>
-                            <h3>Drone Çekimi</h3>
-                        </div>
-                        <div class="card-face card-back">
-                            <h3>Drone Çekimi</h3>
-                            <p>Drone ile havadan çektiğimiz görüntülerle içeriklerinize farklı bir boyut katıyor, etkiyi artırıyoruz.</p>
-                            <a href="/drone-cekimi/" class="btn">Paketleri İncele</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- ========= STATS ========= -->
+<section class="stats">
+  <div class="wrap">
+    <div class="stats-grid reveal-stagger">
+      <div class="stat">
+        <div class="num" data-count="15">0</div>
+        <div class="label">Yıllık Tecrübe</div>
+      </div>
+      <div class="stat">
+        <div class="num" data-count="24"><sup>/7</sup></div>
+        <div class="label">Kesintisiz Hizmet</div>
+      </div>
+      <div class="stat">
+        <div class="num"><span data-count="12">0</span>K+</div>
+        <div class="label">Mutlu Müşteri</div>
+      </div>
+      <div class="stat">
+        <div class="num">⚡<span data-count="15">0</span>dk</div>
+        <div class="label">Ortalama Ulaşım</div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- NEDEN BİZ SECTION -->
-    <section class="why-us">
-        <div class="section-header">
-            <h2 class="section-title">Neden Web4 Medya?</h2>
-            <p class="section-subtitle">Farkımızı ortaya koyan özelliklerimizle işletmenize değer katıyoruz</p>
-        </div>
-        
-        <div class="features-grid">
-            <div class="feature">
-                <div class="feature-icon">
-                    <i class="fas fa-trophy"></i>
-                </div>
-                <h3>Deneyimli Ekip</h3>
-                <p>10+ yıllık sektör deneyimine sahip uzman ekibimizle çalışarak dijital dönüşümünüzü güvence altına alın.</p>
-            </div>
-            
-            <div class="feature">
-                <div class="feature-icon">
-                    <i class="fas fa-headset"></i>
-                </div>
-                <h3>7/24 Destek</h3>
-                <p>Size özel danışmanınızla her zaman iletişimde kalın. Sorularınıza hızlı ve profesyonel çözümler sunuyoruz.</p>
-            </div>
-            
-            <div class="feature">
-                <div class="feature-icon">
-                    <i class="fas fa-handshake"></i>
-                </div>
-                <h3>Şeffaf İletişim</h3>
-                <p>Tüm süreçlerde şeffaf ve açık iletişim politikamızla güven inşa ediyor, beklentilerinizi karşılıyoruz.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA SECTION -->
-    <section class="cta-section">
-        <div class="cta-content">
-            <h2>İşinizi Dijitalde Büyütmeye Hazır mısınız?</h2>
-            <p>Web4 Medya uzmanları sizin için en uygun dijital stratejiyi belirlesin. Ücretsiz danışmanlık ve analiz hizmetimizden yararlanın.</p>
-            <div class="cta-buttons">
-                <a href="tel:05422360983" class="btn btn-primary light-effect">
-                    <i class="fas fa-phone-alt"></i> 0542 236 09 83
-                </a>
-                <a href="https://wa.me/905422360983" class="btn btn-whatsapp light-effect">
-                    <i class="fab fa-whatsapp"></i> WhatsApp'tan Yaz
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-section">
-                <div class="footer-logo">
-                    <img src="/images/web4medya-logo.png" alt="Web4 Medya Logo" onerror="this.onerror=null; this.src='https://via.placeholder.com/200x70/transparent/0A2463?text=Web4+Medya';">
-                    <div class="footer-logo-text">İşinizi şansa bırakmayın!</div>
-                </div>
-                <p class="footer-description">
-                    Dijital pazarlama, web tasarım ve prodüksiyon alanında profesyonel çözümler sunan lider ajans. İşletmenizi dijital dünyada bir adım öne taşıyoruz.
-                </p>
-                <div class="social-links">
-                    <a href="https://instagram.com/web4medya" class="social-link" target="_blank" rel="noopener noreferrer">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                    <a href="https://facebook.com/web4medya" class="social-link" target="_blank" rel="noopener noreferrer">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
-                    <a href="https://twitter.com/web4medya" class="social-link" target="_blank" rel="noopener noreferrer">
-                        <i class="fab fa-twitter"></i>
-                    </a>
-                    <a href="https://linkedin.com/company/web4medya" class="social-link" target="_blank" rel="noopener noreferrer">
-                        <i class="fab fa-linkedin-in"></i>
-                    </a>
-                    <a href="https://wa.me/905422360983" class="social-link" target="_blank" rel="noopener noreferrer">
-                        <i class="fab fa-whatsapp"></i>
-                    </a>
-                </div>
-            </div>
-            
-            <div class="footer-section">
-                <h3>Hızlı Bağlantılar</h3>
-                <ul class="footer-links">
-                    <li><a href="/"><i class="fas fa-chevron-right"></i> Ana Sayfa</a></li>
-                    <li><a href="/hakkimizda/"><i class="fas fa-chevron-right"></i> Hakkımızda</a></li>
-                    <li><a href="/blog/"><i class="fas fa-chevron-right"></i> Blog</a></li>
-                    <li><a href="/referanslar/"><i class="fas fa-chevron-right"></i> Referanslar</a></li>
-                    <li><a href="/iletisim/"><i class="fas fa-chevron-right"></i> İletişim</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-section">
-                <h3>Hizmetlerimiz</h3>
-                <ul class="footer-links">
-                    <li><a href="/google-ads-reklam-ver/"><i class="fas fa-chevron-right"></i> Google Ads Reklam</a></li>
-                    <li><a href="/instagram-reklam-ver/"><i class="fas fa-chevron-right"></i> Instagram Reklam</a></li>
-                    <li><a href="/facebook-reklam-ver/"><i class="fas fa-chevron-right"></i> Facebook Reklam</a></li>
-                    <li><a href="/seo/"><i class="fas fa-chevron-right"></i> SEO Hizmeti</a></li>
-                    <li><a href="/web-tasarim/"><i class="fas fa-chevron-right"></i> Web Tasarım</a></li>
-                    <li><a href="/sosyal-medya-videolari/"><i class="fas fa-chevron-right"></i> Sosyal Medya Videoları</a></li>
-                    <li><a href="/drone-cekimi/"><i class="fas fa-chevron-right"></i> Drone Çekimi</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-section">
-                <h3>İletişim Bilgileri</h3>
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <i class="fas fa-phone-alt"></i>
-                        <div>
-                            <a href="tel:05422360983">0542 236 09 83</a>
-                            <span>Ücretsiz danışmanlık için arayın</span>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <div>
-                            <a href="mailto:info@web4medya.com">info@web4medya.com</a>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <div>
-                            <span>Web4 Medya Ajansı<br>İstanbul, Türkiye</span>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-clock"></i>
-                        <div>
-                            <span>Pzt-Cum: 09:00 - 20:00<br>Cmt & Pzr: 10:00 - 20:00</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="footer-bottom">
-            <p>&copy; 2026 Web4 Medya. Tüm hakları saklıdır. <a href="/gizlilik-politikasi/">Gizlilik Politikası</a> | <a href="/kullanim-kosullari/">Kullanım Koşulları</a></p>
-            <p style="margin-top: 15px; font-size: 0.9rem; color: var(--gray);">Profesyonel dijital pazarlama ve web tasarım çözümleri</p>
-        </div>
-    </footer>
-    
-    <!-- FLOATING CTA BUTTONLARI -->
-    <div class="floating-cta">
-        <a href="https://wa.me/905422360983" class="floating-btn floating-whatsapp light-effect" target="_blank" rel="noopener noreferrer">
-            <i class="fab fa-whatsapp"></i>
-        </a>
-        <a href="tel:05422360983" class="floating-btn floating-phone light-effect">
-            <i class="fas fa-phone-alt"></i>
-        </a>
+<!-- ========= SERVICES (H2 #1) ========= -->
+<section class="section" id="hizmetler">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <div class="section-eyebrow">01 — Hizmetlerimiz</div>
+        <h2>Gaziantep Akü <em>Servis</em> Hizmetlerimiz</h2>
+      </div>
+      <p class="section-lead">
+        Aracınızın ihtiyacı ne olursa olsun — gece yarısı yolda kalsanız bile —
+        Gaziantep Akü Servisi olarak 7 gün 24 saat yanınızdayız.
+      </p>
     </div>
 
-    <script>
-        // OPTİMİZE HEADER SCROLL
-        const header = document.getElementById('mainHeader');
-        window.addEventListener('scroll', () => {
-            header.classList.toggle('scrolled', window.scrollY > 20);
-        });
+    <div class="services-grid reveal-stagger">
+      <article class="service-card">
+        <div class="num">01 / Mobil Akü</div>
+        <div class="ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M7 6V4M17 6V4M7 12h10"/><path d="M14 9l-2 3h3l-2 3"/></svg>
+        </div>
+        <h3>Mobil Akü Servisi</h3>
+        <p>Akünüzü değiştirmek için servise gelmenize gerek yok. Mobil akü ekibimiz adresinize gelir, eski akünüzü söker, yenisini takıp test eder.</p>
+        <a href="tel:+905442822797" class="link">Hemen Ara <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </article>
 
-        // OPTİMİZE MOBILE MENU
-        const menuToggle = document.getElementById('menuToggle');
-        const mobileMenu = document.getElementById('mobileMenu');
+      <article class="service-card">
+        <div class="num">02 / 7/24 Hizmet</div>
+        <div class="ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        </div>
+        <h3>7/24 Acil Akü</h3>
+        <p>Gece, gündüz, hafta sonu, bayram... Telefonunuz açıksa biz de açığız. Acil akü ihtiyacında 0544 282 27 97 her saat aktiftir.</p>
+        <a href="tel:+905442822797" class="link">Acil Hat <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </article>
 
-        menuToggle?.addEventListener('click', (e) => {
-            e.stopPropagation();
-            menuToggle.classList.toggle('active');
-            mobileMenu.classList.toggle('active');
-            
-            // iOS için: Menü açıkken body scroll'unu engelle
-            if (mobileMenu.classList.contains('active')) {
-                document.body.style.overflow = 'hidden';
-            } else {
-                document.body.style.overflow = '';
-            }
-        });
+      <article class="service-card">
+        <div class="num">03 / Yol Yardım</div>
+        <div class="ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 17h2v-5l-3-3h-3V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v12h2"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg>
+        </div>
+        <h3>Akü Takviye & Yol Yardım</h3>
+        <p>Aküniz bitti, aracınız çalışmıyor mu? Takviye veya yeni akü ile yolda kalan aracınızı 15 dakika içinde tekrar yola sokuyoruz.</p>
+        <a href="tel:+905442822797" class="link">Yardım İste <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </article>
 
-        // OPTİMİZE DESKTOP DROPDOWN
-        document.querySelectorAll('.nav-item').forEach(item => {
-            const dropdown = item.querySelector('.dropdown');
-            if (dropdown) {
-                item.addEventListener('mouseenter', () => dropdown.classList.add('active'));
-                item.addEventListener('mouseleave', () => dropdown.classList.remove('active'));
-            }
-        });
+      <article class="service-card">
+        <div class="num">04 / En Uygun Fiyat</div>
+        <div class="ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        </div>
+        <h3>En Uygun Akü Fiyatları</h3>
+        <p>Toptan tedarik ettiğimiz orijinal markalar (İnci, Mutlu, Varta) sayesinde piyasanın altında fiyatlarla, garantili akü sunuyoruz.</p>
+        <a href="tel:+905442822797" class="link">Fiyat Al <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </article>
 
-        // OPTİMİZE MOBILE DROPDOWN
-        document.querySelectorAll('.mobile-dropdown-btn').forEach(btn => {
-            btn.addEventListener('click', function() {
-                const target = document.getElementById(this.dataset.target);
-                const isActive = this.classList.toggle('active');
-                
-                document.querySelectorAll('.mobile-dropdown-content.active').forEach(d => {
-                    if (d !== target) d.classList.remove('active');
-                });
-                
-                document.querySelectorAll('.mobile-dropdown-btn.active').forEach(b => {
-                    if (b !== this) b.classList.remove('active');
-                });
-                
-                if (target) target.classList.toggle('active', isActive);
-            });
-        });
+      <article class="service-card">
+        <div class="num">05 / Akü Testi</div>
+        <div class="ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+        </div>
+        <h3>Ücretsiz Akü Testi</h3>
+        <p>Akünün ömrü tükendi mi yoksa sadece şarjı mı bitti? Profesyonel test cihazıyla akünüzü ücretsiz analiz edip rapor sunuyoruz.</p>
+        <a href="tel:+905442822797" class="link">Test İste <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </article>
 
-        // OPTİMİZE FLIP CARDS - iOS FIX için güncellendi
-        document.querySelectorAll('.flip-card').forEach(card => {
-            card.addEventListener('click', function(e) {
-                if (e.target.closest('a')) return;
-                
-                const isFlipped = this.classList.toggle('flipped');
-                
-                if (isFlipped) {
-                    document.querySelectorAll('.flip-card.flipped').forEach(other => {
-                        if (other !== this) other.classList.remove('flipped');
-                    });
-                }
-            });
-        });
+      <article class="service-card">
+        <div class="num">06 / Eski Akü</div>
+        <div class="ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+        </div>
+        <h3>Eski Akü Alımı</h3>
+        <p>Kullanılmış akünüzü en yüksek hurda fiyatından satın alıyor, yeni akünüzün bedelinden düşüyoruz. Çevreye duyarlı geri dönüşüm.</p>
+        <a href="tel:+905442822797" class="link">Hurda Fiyat <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </article>
+    </div>
+  </div>
+</section>
 
-        // CLOSE DROPDOWNS ON CLICK OUTSIDE
-        document.addEventListener('click', (e) => {
-            if (!e.target.closest('.nav-item')) {
-                document.querySelectorAll('.dropdown.active').forEach(d => d.classList.remove('active'));
-            }
-            
-            if (!e.target.closest('.menu-toggle') && !e.target.closest('.mobile-menu')) {
-                menuToggle?.classList.remove('active');
-                mobileMenu?.classList.remove('active');
-                document.body.style.overflow = ''; // iOS için: Scroll'u geri aç
-            }
-            
-            if (!e.target.closest('.flip-card')) {
-                document.querySelectorAll('.flip-card.flipped').forEach(c => c.classList.remove('flipped'));
-            }
-        });
+<!-- ========= IMAGE STRIP (clickable phone modal) ========= -->
+<section class="image-strip">
+  <div class="image-strip-grid">
+    <div class="strip-item phone-trigger" role="button" tabindex="0" aria-label="Akü servisi için ara">
+      <img src="/images/gaziantep-aku-servis.webp" alt="Gaziantep Akü Servisi - Profesyonel Ekip" loading="lazy" />
+      <div class="strip-label">
+        <h4>Profesyonel<br/>Akü Ekibi</h4>
+        <span class="pill">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.33 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          Ara
+        </span>
+      </div>
+    </div>
+    <div class="strip-item phone-trigger" role="button" tabindex="0" aria-label="Akü servisi için ara">
+      <img src="/images/gaziante-aku-servis2.webp" alt="Gaziantep Mobil Akü Hizmeti" loading="lazy" />
+      <div class="strip-label">
+        <h4>Mobil Hizmet<br/>Kesintisiz</h4>
+        <span class="pill">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.33 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          Ara
+        </span>
+      </div>
+    </div>
+    <div class="strip-item phone-trigger" role="button" tabindex="0" aria-label="Akü servisi için ara">
+      <img src="/images/gaziantep-aku-servis3.webp" alt="Gaziantep Akü Çeşitleri ve Marka Seçenekleri" loading="lazy" />
+      <div class="strip-label">
+        <h4>Tüm Markalar<br/>Garantili</h4>
+        <span class="pill">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.33 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          Ara
+        </span>
+      </div>
+    </div>
+  </div>
+</section>
 
-        // OPTİMİZE SMOOTH SCROLL
-        const homeLink = document.getElementById('homeLink');
-        const mobileHomeLink = document.getElementById('mobileHomeLink');
-        
-        function scrollToTop() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+<!-- ========= BRANDS (H2 #2) ========= -->
+<section class="brands">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <div class="section-eyebrow">02 — Akü Markaları</div>
+        <h2>Gaziantep'te <em>Orijinal</em> Akü Markaları</h2>
+      </div>
+      <p class="section-lead">
+        Sadece yetkili distribütörlerden tedarik edilen, üretici garantili akülerle çalışıyoruz.
+        Aracınızın markasına ve modelinize uygun aküyü birlikte seçelim.
+      </p>
+    </div>
+
+    <div class="brand-cards reveal-stagger">
+      <a href="/gaziantep-inci-aku" class="brand-card">
+        <div class="top">
+          <div class="logo-text">İNCİ</div>
+          <span class="badge">Yerli Üretim</span>
+        </div>
+        <p>Türkiye'nin en köklü akü üreticisi. Binek, ticari ve ağır vasıta için geniş ürün gamı, uzun ömür ve güçlü marş performansı.</p>
+        <span class="more">İnci Akü Modelleri <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a href="/gaziantep-mutlu-aku" class="brand-card">
+        <div class="top">
+          <div class="logo-text">MUTLU</div>
+          <span class="badge">İhracat Lideri</span>
+        </div>
+        <p>50+ yıllık tecrübeyle dünya genelinde tercih edilen, yüksek soğuk marş gücüne sahip premium akü serisi. Avrupa standardı performans.</p>
+        <span class="more">Mutlu Akü Modelleri <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a href="/gaziantep-varta-aku" class="brand-card">
+        <div class="top">
+          <div class="logo-text">VARTA</div>
+          <span class="badge">Premium</span>
+        </div>
+        <p>Alman mühendisliğinin akü teknolojisi. Start-Stop sistemli modern araçlar için AGM ve EFB seçenekleri ile maksimum dayanıklılık.</p>
+        <span class="more">Varta Akü Modelleri <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ========= AREA / DISTRICTS (H2 #3) ========= -->
+<section class="area" id="bolgeler">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <div class="section-eyebrow">03 — Hizmet Bölgelerimiz</div>
+        <h2>Gaziantep'in <em style="color:var(--ink); background:var(--bolt)">Tüm İlçelerinde</em> Akü Servisi</h2>
+      </div>
+      <p class="section-lead">
+        Merkez ilçelerde ortalama 15 dakika, çevre ilçelerde mesafeye göre değişen sürelerde
+        ekibimiz yerinize ulaşır. Aşağıdaki bölgelerde aktif olarak hizmet veriyoruz.
+      </p>
+    </div>
+
+    <div class="districts reveal-stagger">
+      <a href="tel:+905442822797" class="district">
+        <h4>Şahinbey</h4>
+        <small>Merkez · 7/24</small>
+        <span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a href="tel:+905442822797" class="district">
+        <h4>Şehitkamil</h4>
+        <small>Merkez · 7/24</small>
+        <span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a href="tel:+905442822797" class="district">
+        <h4>Oğuzeli</h4>
+        <small>Mobil ekip</small>
+        <span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a href="tel:+905442822797" class="district">
+        <h4>Nizip</h4>
+        <small>Mobil ekip</small>
+        <span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a href="tel:+905442822797" class="district">
+        <h4>İslahiye</h4>
+        <small>Mobil ekip</small>
+        <span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a href="tel:+905442822797" class="district">
+        <h4>Nurdağı</h4>
+        <small>Mobil ekip</small>
+        <span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a href="tel:+905442822797" class="district">
+        <h4>Araban</h4>
+        <small>Mobil ekip</small>
+        <span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a href="tel:+905442822797" class="district">
+        <h4>Yavuzeli</h4>
+        <small>Mobil ekip</small>
+        <span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a href="tel:+905442822797" class="district">
+        <h4>Karkamış</h4>
+        <small>Mobil ekip</small>
+        <span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+    </div>
+
+    <div style="margin-top:50px; display:flex; gap:20px; align-items:center; flex-wrap:wrap;">
+      <div style="display:flex;align-items:center;gap:14px;font-size:14px;opacity:.8">
+        <svg viewBox="0 0 24 24" fill="none" stroke="var(--bolt)" stroke-width="2.2" style="width:22px;height:22px;flex-shrink:0"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <span><strong style="color:var(--bolt)">Adresimiz:</strong> Sanayi Sitesi, Gündoğdu Caddesi No: 5/A, Şehitkamil / Gaziantep</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========= PROCESS / 4 STEP ========= -->
+<section class="process">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <div class="section-eyebrow">04 — Nasıl Çalışır?</div>
+        <h2>4 Adımda <em>Akü Servisi</em></h2>
+      </div>
+      <p class="section-lead">
+        Süreci basitleştirdik. Tek bir telefonla başlayan akü değişimi, 15 dakika içinde
+        tamamlanmış ve yola dönmüş bir araçla biter.
+      </p>
+    </div>
+
+    <div class="steps reveal-stagger">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h3>Arayın</h3>
+        <p>0544 282 27 97 numaramızdan bize ulaşın. Konumunuzu ve aracınızı söyleyin.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h3>Yola Çıkıyoruz</h3>
+        <p>En yakın mobil ekibimiz aracınızın akü modeliyle birlikte yola çıkar.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h3>Değişim & Test</h3>
+        <p>Eski akü sökülür, yenisi takılır, marş ve şarj sistemi test edilir.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <h3>Garanti & Yola Devam</h3>
+        <p>Eski akünüz alınır, yeni akünüzün garantisi belgelenir, hemen yola çıkarsınız.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========= REVIEWS (H2 #4) ========= -->
+<section class="reviews">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <div class="section-eyebrow">05 — Müşteri Yorumları</div>
+        <h2>Gaziantepliler <em>Bizi</em> Seçiyor</h2>
+      </div>
+      <p class="section-lead">
+        4.9/5 ortalama, 327+ Google değerlendirmesi. Birkaç müşterimizin yorumunu bırakıyoruz —
+        kararı siz verin.
+      </p>
+    </div>
+
+    <div class="reviews-grid reveal-stagger">
+      <article class="review">
+        <div class="stars" aria-label="5 yıldız">
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568L24 9.423l-6 5.842L19.336 24 12 19.897 4.664 24 6 15.265 0 9.423l8.332-1.268z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568L24 9.423l-6 5.842L19.336 24 12 19.897 4.664 24 6 15.265 0 9.423l8.332-1.268z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568L24 9.423l-6 5.842L19.336 24 12 19.897 4.664 24 6 15.265 0 9.423l8.332-1.268z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568L24 9.423l-6 5.842L19.336 24 12 19.897 4.664 24 6 15.265 0 9.423l8.332-1.268z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568L24 9.423l-6 5.842L19.336 24 12 19.897 4.664 24 6 15.265 0 9.423l8.332-1.268z"/></svg>
+        </div>
+        <blockquote>
+          Gece 02:00'de Şehitkamil'de yolda kaldım, telefon açtım 20 dakikada geldiler. Hem süratli hem nazik ekip, fiyat da gayet uygundu. Gaziantep'te akü için aklınızda tek isim olsun.
+        </blockquote>
+        <div class="author">
+          <div class="avatar">MK</div>
+          <div>
+            <strong>Mehmet K.</strong>
+            <small>Şehitkamil · Volkswagen Passat</small>
+          </div>
+        </div>
+      </article>
+
+      <article class="review">
+        <div class="stars" aria-label="5 yıldız">
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568L24 9.423l-6 5.842L19.336 24 12 19.897 4.664 24 6 15.265 0 9.423l8.332-1.268z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568L24 9.423l-6 5.842L19.336 24 12 19.897 4.664 24 6 15.265 0 9.423l8.332-1.268z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568L24 9.423l-6 5.842L19.336 24 12 19.897 4.664 24 6 15.265 0 9.423l8.332-1.268z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568L24 9.423l-6 5.842L19.336 24 12 19.897 4.664 24 6 15.265 0 9.423l8.332-1.268z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568L24 9.423l-6 5.842L19.336 24 12 19.897 4.664 24 6 15.265 0 9.423l8.332-1.268z"/></svg>
+        </div>
+        <blockquote>
+          Şahinbey'de markete park ettim, alışveriş sonrası araç çalışmadı. Aradım, ekip 12 dakikada yanımdaydı! Varta akü taktılar, garantisini verdiler. Eski aküyü de aldılar. Helal olsun.
+        </blockquote>
+        <div class="author">
+          <div class="avatar">AY</div>
+          <div>
+            <strong>Ayşe Y.</strong>
+            <small>Şahinbey · Renault Megane</small>
+          </div>
+        </div>
+      </article>
+
+      <article class="review">
+        <div class="stars" aria-label="5 yıldız">
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568L24 9.423l-6 5.842L19.336 24 12 19.897 4.664 24 6 15.265 0 9.423l8.332-1.268z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568L24 9.423l-6 5.842L19.336 24 12 19.897 4.664 24 6 15.265 0 9.423l8.332-1.268z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568L24 9.423l-6 5.842L19.336 24 12 19.897 4.664 24 6 15.265 0 9.423l8.332-1.268z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568L24 9.423l-6 5.842L19.336 24 12 19.897 4.664 24 6 15.265 0 9.423l8.332-1.268z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568L24 9.423l-6 5.842L19.336 24 12 19.897 4.664 24 6 15.265 0 9.423l8.332-1.268z"/></svg>
+        </div>
+        <blockquote>
+          Nizip'ten aradım, çevre ilçeye geleceklerine inanmamıştım açıkçası. 40 dakikada ulaştılar, akü değişimi 10 dakika sürdü. Mutlu aküyü tavsiye ettiler, gayet memnunum. Fiyat performans şampiyonu.
+        </blockquote>
+        <div class="author">
+          <div class="avatar">HT</div>
+          <div>
+            <strong>Hasan T.</strong>
+            <small>Nizip · Ford Transit</small>
+          </div>
+        </div>
+      </article>
+
+      <article class="review">
+        <div class="stars" aria-label="5 yıldız">
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568L24 9.423l-6 5.842L19.336 24 12 19.897 4.664 24 6 15.265 0 9.423l8.332-1.268z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568L24 9.423l-6 5.842L19.336 24 12 19.897 4.664 24 6 15.265 0 9.423l8.332-1.268z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568L24 9.423l-6 5.842L19.336 24 12 19.897 4.664 24 6 15.265 0 9.423l8.332-1.268z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568L24 9.423l-6 5.842L19.336 24 12 19.897 4.664 24 6 15.265 0 9.423l8.332-1.268z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568L24 9.423l-6 5.842L19.336 24 12 19.897 4.664 24 6 15.265 0 9.423l8.332-1.268z"/></svg>
+        </div>
+        <blockquote>
+          Filomuzdaki 6 aracın aküsünü buradan değiştiriyoruz. Toplu fiyatta çok iyi indirim yapıyorlar, fatura ve garanti kâğıdı düzenli. Şirket olarak gözümüz kapalı tavsiye ederiz.
+        </blockquote>
+        <div class="author">
+          <div class="avatar">EÇ</div>
+          <div>
+            <strong>Emre Ç.</strong>
+            <small>OSB · Filo Yönetimi</small>
+          </div>
+        </div>
+      </article>
+
+      <article class="review">
+        <div class="stars" aria-label="5 yıldız">
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568L24 9.423l-6 5.842L19.336 24 12 19.897 4.664 24 6 15.265 0 9.423l8.332-1.268z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568L24 9.423l-6 5.842L19.336 24 12 19.897 4.664 24 6 15.265 0 9.423l8.332-1.268z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568L24 9.423l-6 5.842L19.336 24 12 19.897 4.664 24 6 15.265 0 9.423l8.332-1.268z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568L24 9.423l-6 5.842L19.336 24 12 19.897 4.664 24 6 15.265 0 9.423l8.332-1.268z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568L24 9.423l-6 5.842L19.336 24 12 19.897 4.664 24 6 15.265 0 9.423l8.332-1.268z"/></svg>
+        </div>
+        <blockquote>
+          Bayram günü aküm bitti, ailem arabada bekliyor... Aradığımda "Hemen geliyoruz" dediler. 18 dakikada İnci akü ile beni kurtardılar. Hayır duası ettim. Allah razı olsun, çok güvenilir bir ekip.
+        </blockquote>
+        <div class="author">
+          <div class="avatar">FÖ</div>
+          <div>
+            <strong>Fatma Ö.</strong>
+            <small>Şehitkamil · Fiat Egea</small>
+          </div>
+        </div>
+      </article>
+
+      <article class="review">
+        <div class="stars" aria-label="5 yıldız">
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568L24 9.423l-6 5.842L19.336 24 12 19.897 4.664 24 6 15.265 0 9.423l8.332-1.268z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568L24 9.423l-6 5.842L19.336 24 12 19.897 4.664 24 6 15.265 0 9.423l8.332-1.268z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568L24 9.423l-6 5.842L19.336 24 12 19.897 4.664 24 6 15.265 0 9.423l8.332-1.268z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568L24 9.423l-6 5.842L19.336 24 12 19.897 4.664 24 6 15.265 0 9.423l8.332-1.268z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568L24 9.423l-6 5.842L19.336 24 12 19.897 4.664 24 6 15.265 0 9.423l8.332-1.268z"/></svg>
+        </div>
+        <blockquote>
+          Aküm bitiyor mu yoksa şarjı mı zayıf bilemedim, gittim ücretsiz test ettirdim. Aslında alternatörümün arızalı olduğunu söylediler. Akü satmaya zorlamadılar, dürüst ekip. Helal olsun.
+        </blockquote>
+        <div class="author">
+          <div class="avatar">SD</div>
+          <div>
+            <strong>Serkan D.</strong>
+            <small>Şahinbey · Hyundai i20</small>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ========= FAQ (H2 #5) ========= -->
+<section class="faq" id="sss">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <div class="section-eyebrow">06 — SSS</div>
+        <h2>Sıkça Sorulan <em>Sorular</em></h2>
+      </div>
+      <p class="section-lead">
+        Gaziantep akü servisi hakkında en çok merak edilenler. Aradığınızı bulamazsanız
+        direkt arayın, telefonda yanıtlayalım.
+      </p>
+    </div>
+
+    <div class="faq-list">
+      <details class="faq-item" open>
+        <summary>
+          Gaziantep akü servisiniz kaç dakikada yerime gelir?
+          <span class="toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></span>
+        </summary>
+        <div class="answer">
+          <strong>Şahinbey ve Şehitkamil</strong> ilçelerinde ortalama <strong>15-20 dakika</strong> içerisinde adresinize ulaşıyoruz. Oğuzeli, Nizip, İslahiye gibi çevre ilçelerde mesafeye göre 30-50 dakika arası, en uzak noktalarda (Karkamış, Yavuzeli) 60 dakika içerisinde yerinizde oluyoruz.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>
+          7/24 akü servisi gerçekten gece de hizmet veriyor mu?
+          <span class="toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></span>
+        </summary>
+        <div class="answer">
+          Evet. <strong>0544 282 27 97</strong> numaramız hafta içi, hafta sonu, resmi tatil ve dini bayramlar dahil <strong>günün 24 saati aktiftir</strong>. Gece arandığımızda nöbetçi ekibimiz mobil araçla yola çıkar. Yolda kaldıysanız tereddüt etmeden arayın.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>
+          Mobil akü hizmeti için ek ücret alıyor musunuz?
+          <span class="toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></span>
+        </summary>
+        <div class="answer">
+          Gaziantep <strong>merkez ilçelerde mobil akü hizmetimiz ücretsizdir</strong>. Sadece aldığınız akünün bedelini ödersiniz. Eski akünüzü iade ederseniz hurda bedeli yeni akünüzün fiyatından düşülür. Çevre ilçelerde ise sembolik bir ulaşım ücreti uygulanabilir; mutlaka arama anında bilgilendirme yaparız.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>
+          Hangi akü markalarını satıyorsunuz?
+          <span class="toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></span>
+        </summary>
+        <div class="answer">
+          <strong>İnci Akü, Mutlu Akü, Varta ve Platin</strong> başta olmak üzere Türkiye'de bulunan tanınmış marka aküleri tedarik ediyoruz. Aracınızın markasına, modeline ve kullanım amacına göre en uygun aküyü öneriyoruz. Stok dışı özel modeller için aynı gün içinde tedarik yapıyoruz.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>
+          Akü ne kadar süre dayanır? Garanti süresi nedir?
+          <span class="toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></span>
+        </summary>
+        <div class="answer">
+          Standart kurşun-asit akülerin ömrü <strong>3-5 yıl</strong>, AGM ve EFB teknolojili aküler ise 5-7 yıla kadar dayanabilir. Sattığımız tüm akülerde <strong>üretici firma garantisi 2 yıldır</strong>; herhangi bir üretim hatasında akü ücretsiz değiştirilir. Garanti belgesi her satışta tarafınıza verilir.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>
+          Akümün bitip bitmediğini nasıl anlarım?
+          <span class="toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></span>
+        </summary>
+        <div class="answer">
+          Yavaş marş, gösterge ışıklarının zayıflaması, akü ikaz lambasının yanması, soğuk havalarda araç çalışmaması en yaygın belirtilerdir. Emin değilseniz <strong>ücretsiz akü testi</strong> hizmetimizden faydalanın — profesyonel test cihazıyla akünüzün durumunu rapor halinde sunalım.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>
+          Eski akümü ne yapacağım? Geri alıyor musunuz?
+          <span class="toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></span>
+        </summary>
+        <div class="answer">
+          Evet, <strong>eski akünüzü en yüksek hurda bedelinden satın alıyoruz</strong>. Bu bedel yeni akünüzün fiyatından düşülür, böylece daha avantajlı değişim yapmış olursunuz. Aldığımız aküler lisanslı geri dönüşüm tesislerine teslim edilir — çevreye duyarlı bir süreç işletiyoruz.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>
+          Ödeme yöntemleri nelerdir? Fatura veriyor musunuz?
+          <span class="toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></span>
+        </summary>
+        <div class="answer">
+          Nakit, kredi kartı (taksitli ödeme dahil), havale/EFT, papara ile ödeme kabul ediyoruz. Tüm satışlarımızda <strong>e-Fatura</strong> düzenleniyor; kurumsal müşteriler için kurumsal fatura ve filo anlaşmaları yapılabilir.
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ========= FINAL CTA ========= -->
+<section class="final-cta">
+  <div class="wrap final-cta-inner">
+    <div class="reveal">
+      <span class="big-num">⚡ 0544 282 27 97</span>
+      <h2>Akü Bitti mi?<br/><em>Hemen Arayın.</em></h2>
+      <p>Gaziantep'in neresinde olursanız olun, ekibimiz yola çıkmaya hazır. Tek bir telefon, 15 dakika ve yeniden yola devam.</p>
+    </div>
+    <div class="final-cta-btns">
+      <a href="tel:+905442822797" class="btn btn-call">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.33 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        Hemen Ara
+      </a>
+      <a href="https://wa.me/905442822797?text=Merhaba%2C+Gaziantep%27te+ak%C3%BC+servisine+ihtiyac%C4%B1m+var." class="btn btn-wa" target="_blank" rel="noopener">
+        <svg class="ico" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413"/></svg>
+        WhatsApp Mesaj
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ========= FOOTER ========= -->
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-col footer-brand">
+        <img src="/images/gaziantep-aku-servisim-logo.png" alt="Gaziantep Akü Servisi" />
+        <h5 style="margin-bottom:8px">Gaziantep Akü Servisi</h5>
+        <p>Gaziantep'in tüm ilçelerinde 7/24 mobil akü, yol yardım ve acil akü değişim hizmeti. 15 yılı aşkın tecrübeyle yerinde profesyonel servis.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Hizmetler</h5>
+        <ul>
+          <li><a href="#hizmetler">Mobil Akü Servisi</a></li>
+          <li><a href="#hizmetler">7/24 Acil Akü</a></li>
+          <li><a href="#hizmetler">Yol Yardım</a></li>
+          <li><a href="#hizmetler">Ücretsiz Akü Testi</a></li>
+          <li><a href="#hizmetler">Eski Akü Alımı</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Akü Markaları</h5>
+        <ul>
+          <li><a href="/gaziantep-inci-aku">Gaziantep İnci Akü</a></li>
+          <li><a href="/gaziantep-mutlu-aku">Gaziantep Mutlu Akü</a></li>
+          <li><a href="/gaziantep-varta-aku">Gaziantep Varta Akü</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>İletişim</h5>
+        <ul>
+          <li><a href="tel:+905442822797"><strong>0544 282 27 97</strong></a></li>
+          <li><a href="https://wa.me/905442822797">WhatsApp Mesaj</a></li>
+          <li style="opacity:.7;font-size:13px;margin-top:10px;line-height:1.6">Sanayi Sitesi, Gündoğdu Cd. No: 5/A<br/>Şehitkamil / Gaziantep</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Gaziantep Akü Servisi · Tüm Hakları Saklıdır</span>
+      <span>Şahinbey · Şehitkamil · Tüm İlçeler</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ========= FLOATING CTA BUTTONS ========= -->
+<div class="float-actions" aria-hidden="false">
+  <a href="https://wa.me/905442822797?text=Merhaba%2C+Gaziantep%27te+ak%C3%BC+servisine+ihtiyac%C4%B1m+var." class="float-btn wa" target="_blank" rel="noopener" aria-label="WhatsApp ile yaz">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413"/></svg>
+  </a>
+  <a href="tel:+905442822797" class="float-btn call" aria-label="Hemen ara">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.33 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+  </a>
+</div>
+
+<!-- ========= MOBILE STICKY BAR ========= -->
+<div class="mobile-bar">
+  <a href="tel:+905442822797" class="mb-call">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.33 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+    Hemen Ara
+  </a>
+  <a href="https://wa.me/905442822797?text=Merhaba%2C+Gaziantep%27te+ak%C3%BC+servisine+ihtiyac%C4%B1m+var." class="mb-wa" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413"/></svg>
+    WhatsApp
+  </a>
+</div>
+
+<!-- ========= AVAILABILITY POP NOTIFICATION ========= -->
+<aside class="availability-pop" id="availPop" role="status" aria-live="polite">
+  <div class="avatar">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M13 2L4.09 12.97L11 14L11 22L19.91 11.03L13 10L13 2z" fill="currentColor"/></svg>
+  </div>
+  <div class="text">
+    <strong>Akü Servisimiz Şu An Müsait ✓</strong>
+    <p>Arayın hemen gelelim! <a href="tel:+905442822797">0544 282 27 97</a></p>
+  </div>
+  <button class="close" aria-label="Kapat" id="availClose">×</button>
+</aside>
+
+<!-- ========= PHONE MODAL ========= -->
+<div class="modal" id="phoneModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" aria-label="Kapat">×</button>
+    <div class="modal-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.33 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+    </div>
+    <h3 id="modalTitle">Akü Servisi</h3>
+    <p>7/24 hizmetimiz aktif. Hemen arayın ekibimiz yola çıksın.</p>
+    <span class="phone-display">0544 282 27 97</span>
+    <a href="tel:+905442822797" class="btn btn-secondary">
+      <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.33 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      Şimdi Ara
+    </a>
+  </div>
+</div>
+
+<script>
+/* ============================================================
+   REVEAL ON SCROLL
+   ============================================================ */
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('in');
+      io.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.12, rootMargin: '0px 0px -50px 0px' });
+
+document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => io.observe(el));
+
+/* ============================================================
+   COUNTER ANIMATION
+   ============================================================ */
+const counterIo = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      const target = parseInt(e.target.dataset.count || e.target.textContent, 10);
+      if (isNaN(target)) return;
+      const duration = 1600;
+      const start = performance.now();
+      const startVal = 0;
+      const tick = (now) => {
+        const elapsed = now - start;
+        const progress = Math.min(elapsed / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        e.target.textContent = Math.round(startVal + (target - startVal) * eased);
+        if (progress < 1) requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+      counterIo.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.4 });
+
+document.querySelectorAll('[data-count]').forEach(el => counterIo.observe(el));
+
+/* ============================================================
+   AVAILABILITY POPUP (shows when user scrolls ~halfway)
+   ============================================================ */
+(function () {
+  const pop = document.getElementById('availPop');
+  const closeBtn = document.getElementById('availClose');
+  let shown = false;
+  let dismissed = false;
+
+  const maybeShow = () => {
+    if (shown || dismissed) return;
+    const scrolled = window.scrollY + window.innerHeight;
+    const triggerPoint = document.body.scrollHeight * 0.40;
+    if (scrolled >= triggerPoint) {
+      pop.classList.add('show');
+      shown = true;
+    }
+  };
+
+  window.addEventListener('scroll', maybeShow, { passive: true });
+  maybeShow();
+
+  closeBtn.addEventListener('click', () => {
+    pop.classList.remove('show');
+    dismissed = true;
+  });
+})();
+
+/* ============================================================
+   PHONE MODAL (open when image-strip item clicked)
+   ============================================================ */
+(function () {
+  const modal = document.getElementById('phoneModal');
+  const closeBtn = document.getElementById('modalClose');
+  const triggers = document.querySelectorAll('.phone-trigger');
+
+  const open = () => {
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  };
+  const close = () => {
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+  };
+
+  triggers.forEach(t => {
+    t.addEventListener('click', open);
+    t.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        open();
+      }
+    });
+  });
+
+  closeBtn.addEventListener('click', close);
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) close();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') close();
+  });
+})();
+
+/* ============================================================
+   SUBTLE PARALLAX ON HERO VISUAL
+   ============================================================ */
+(function () {
+  const visual = document.querySelector('.hero-visual-frame');
+  if (!visual || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  let ticking = false;
+
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      requestAnimationFrame(() => {
+        const y = window.scrollY;
+        if (y < 800) {
+          visual.style.transform = `translateY(${y * 0.06}px)`;
         }
-        
-        homeLink?.addEventListener('click', (e) => {
-            e.preventDefault();
-            scrollToTop();
-        });
-        
-        mobileHomeLink?.addEventListener('click', (e) => {
-            e.preventDefault();
-            scrollToTop();
-            menuToggle?.classList.remove('active');
-            mobileMenu?.classList.remove('active');
-            document.body.style.overflow = ''; // iOS için: Scroll'u geri aç
-        });
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }, { passive: true });
+})();
+</script>
 
-        // CLOSE MOBILE MENU ON LINK CLICK
-        document.querySelectorAll('.mobile-dropdown-link, .mobile-nav-link').forEach(link => {
-            link.addEventListener('click', () => {
-                menuToggle?.classList.remove('active');
-                mobileMenu?.classList.remove('active');
-                document.querySelectorAll('.mobile-dropdown-content.active').forEach(d => d.classList.remove('active'));
-                document.querySelectorAll('.mobile-dropdown-btn.active').forEach(b => b.classList.remove('active'));
-                document.body.style.overflow = ''; // iOS için: Scroll'u geri aç
-            });
-        });
-
-        // IMAGE FALLBACK
-        document.querySelectorAll('.logo img, .footer-logo img').forEach(img => {
-            img.onerror = function() {
-                this.onerror = null;
-                this.src = 'https://via.placeholder.com/200x70/transparent/0A2463?text=Web4+Medya';
-                this.alt = 'Web4 Medya Logo';
-            };
-        });
-
-        // iOS FIX: Touch events için optimizasyon
-        document.addEventListener('touchstart', function() {}, {passive: true});
-        document.addEventListener('touchmove', function() {}, {passive: true});
-    </script>
 </body>
 </html>
